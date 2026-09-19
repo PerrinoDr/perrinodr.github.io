@@ -15,35 +15,70 @@
 
 <!-- ============ NAVBAR ============ -->
 <header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#cdd7cf] shadow-sm transition-shadow">
-<!--<header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 transition-shadow"> -->
-  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 relative">
+    <!-- Logo -->
     <a href="index.html" class="flex items-center gap-2">
       <i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>
-	  <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
+      <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
       <span class="font-display leading-tight">
         <span class="block text-sm font-bold text-primary">Dr. Felice Perrino</span>
         <span class="block text-[11px] font-medium" style="color:var(--color-ink-soft)">Medico Cardiologo</span>
       </span>
     </a>
+
+    <!-- Navigazione Desktop Principale -->
     <nav class="hidden md:flex items-center gap-8">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="trattamenti.html" class="nav-link">Trattamenti</a>
       <a href="blog.html" class="nav-link">Blog</a>
       <a href="contatti.html" class="nav-link">Contatti</a>
     </nav>
-    <a href="contatti.html" class="hidden md:inline-block btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Prenota visita</a>
-    <button id="menu-btn" class="md:hidden text-primary" aria-label="Apri menu" aria-expanded="false">
-      <i data-lucide="menu" class="w-6 h-6"></i>
-    </button>
-  </div>
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 flex flex-col gap-4 bg-white/95 border-t border-slate-100">
-    <a href="index.html" class="nav-link active">Home</a>
-    <a href="trattamenti.html" class="nav-link">Trattamenti</a>
-    <a href="blog.html" class="nav-link">Blog</a>
-    <a href="contatti.html" class="nav-link">Contatti</a>
-    <a href="contatti.html" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold text-center">Prenota visita</a>
+
+    <!-- Sezione Destra: Icona Menu circolare (a sinistra) e tasto Prenota visita -->
+    <div class="flex items-center gap-3 relative">
+      <!-- Pulsante Menu circolare nero con dimensioni fisse (w-11 h-11) per evitare che diventi enorme -->
+      <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0" aria-label="Apri menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+
+      <!-- Tasto Prenota visita -->
+      <a href="contatti.html" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold shrink-0">Prenota visita</a>
+
+      <!-- Menu a tendina posizionato in modo assoluto sotto l'icona -->
+      <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Home</a>
+        <a href="trattamenti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Trattamenti</a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Blog</a>
+        <a href="contatti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Contatti</a>
+      </div>
+    </div>
   </div>
 </header>
+
+<!-- Script per la gestione del click del menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      // Chiudi il menu se si clicca fuori
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+</script>
 
 <main>
 
