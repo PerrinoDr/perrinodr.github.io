@@ -100,37 +100,6 @@ categoryBtns.forEach((btn) => {
 });
 searchInput?.addEventListener('input', filterBlog);
 
-// ============ Form di contatto/prenotazione ============
-const bookingForm = document.getElementById('booking-form');
-if (bookingForm) {
-  bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let valid = true;
-    const requiredFields = bookingForm.querySelectorAll('[required]');
-    requiredFields.forEach((field) => {
-      const errorEl = document.getElementById(`err-${field.id}`);
-      if (!field.value.trim() || (field.type === 'email' && !/^\S+@\S+\.\S+$/.test(field.value))) {
-        valid = false;
-        field.classList.add('border-red-400');
-        if (errorEl) errorEl.classList.remove('hidden');
-      } else {
-        field.classList.remove('border-red-400');
-        if (errorEl) errorEl.classList.add('hidden');
-      }
-    });
-
-    if (!valid) return;
-
-    const modal = document.getElementById('success-modal');
-    modal?.classList.remove('hidden');
-    bookingForm.reset();
-  });
-}
-
-document.getElementById('close-modal')?.addEventListener('click', () => {
-  document.getElementById('success-modal')?.classList.add('hidden');
-});
-
 // ============ Anno corrente nel footer ============
 document.querySelectorAll('.current-year').forEach((el) => {
   el.textContent = new Date().getFullYear();
