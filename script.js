@@ -137,7 +137,7 @@ document.querySelectorAll('.current-year').forEach((el) => {
 });
 
 // ============ Gestione blocco e sblocco Google Maps (GDPR) ============
-document.addEventListener("DOMContentLoaded", () => {
+function initMapConsent() {
   const loadMapBtn = document.getElementById('load-map-btn');
   const mapOverlay = document.getElementById('map-consent-overlay');
   const googleMap = document.getElementById('google-map');
@@ -159,15 +159,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sblocco automatico se l'utente ha già accettato in precedenza
+  // Sblocco automatico se l'utente ha già accettato in una sessione precedente
   if (document.cookie.includes('cookieconsent_status=allow')) {
     enableMap();
   }
 
-  // Sblocco automatico all'istante quando si clicca "Accetta tutti" sul banner di Osano
+  // Sblocco automatico quando si clicca "Accetta tutti" sul banner di Osano
   document.addEventListener('click', (e) => {
     if (e.target.matches('.cc-allow') || e.target.closest('.cc-allow')) {
       setTimeout(enableMap, 300);
     }
   });
-});
+}
+
+// Esegue subito se il DOM è pronto, altrimenti attende
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMapConsent);
+} else {
+  initMapConsent();
+}
