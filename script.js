@@ -135,3 +135,39 @@ document.getElementById('close-modal')?.addEventListener('click', () => {
 document.querySelectorAll('.current-year').forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
+
+// ============ Gestione blocco e sblocco Google Maps (GDPR) ============
+document.addEventListener("DOMContentLoaded", () => {
+  const loadMapBtn = document.getElementById('load-map-btn');
+  const mapOverlay = document.getElementById('map-consent-overlay');
+  const googleMap = document.getElementById('google-map');
+
+  function enableMap() {
+    if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
+      googleMap.src = googleMap.dataset.src; 
+      googleMap.classList.remove('hidden');
+      if (mapOverlay) {
+        mapOverlay.style.display = 'none'; 
+      }
+    }
+  }
+
+  // Sblocco tramite pulsante manuale sul box della mappa
+  if (loadMapBtn) {
+    loadMapBtn.addEventListener('click', () => {
+      enableMap();
+    });
+  }
+
+  // Sblocco automatico se l'utente ha già accettato in precedenza
+  if (document.cookie.includes('cookieconsent_status=allow')) {
+    enableMap();
+  }
+
+  // Sblocco automatico all'istante quando si clicca "Accetta tutti" sul banner di Osano
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.cc-allow') || e.target.closest('.cc-allow')) {
+      setTimeout(enableMap, 300);
+    }
+  });
+});
