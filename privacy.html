@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Dr. Perrino</title>
+<meta name="description" content="Informativa sulla privacy e trattamento dei dati personali del Dr. Felice Perrino.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#cdd7cf] shadow-sm transition-shadow">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 relative">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>
+      <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
+      <span class="font-display leading-tight">
+        <span class="block text-sm font-bold text-primary">Dr. Felice Perrino</span>
+        <span class="block text-[11px] font-medium" style="color:var(--color-ink-soft)">Medico Cardiologo</span>
+      </span>
+    </a>
+
+    <!-- Navigazione Desktop Principale -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="trattamenti.html" class="nav-link">Trattamenti</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contatti.html" class="nav-link">Contatti</a>
+    </nav>
+
+    <!-- Sezione Destra: Icona Menu circolare -->
+    <div class="flex items-center gap-3 relative">
+      <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0" aria-label="Apri menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+
+      <!-- Menu a tendina mobile -->
+      <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Home</a>
+        <a href="trattamenti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Trattamenti</a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Blog</a>
+        <a href="contatti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Contatti</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Script gestione menu mobile -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menu_btn_listener = menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+</script>
+
+<main class="pt-20">
+
+  <!-- ============ HERO SEZIONE ============ -->
+  <section class="bg-sage py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-6 reveal">
+      <p class="text-primary font-semibold mb-3">Note legali e trasparenza</p>
+      <div class="accent-rule mb-5"></div>
+      <h1 class="font-display text-4xl font-extrabold text-slate-800">Privacy Policy</h1>
+      <p class="mt-4 text-sm" style="color:var(--color-ink-soft)">Informativa sul trattamento dei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR).</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTENUTO PRIVACY POLICY ============ -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <div class="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 space-y-8 text-slate-700 text-sm leading-relaxed shadow-sm">
+      
+      <div>
+        <h2 class="font-display text-xl font-bold text-slate-800 mb-3">1. Titolare del Trattamento</h2>
+        <p>Il Titolare del trattamento dei dati personali è il <strong>Dr. Felice Perrino</strong>, Medico Cardiologo.</p>
+        <p class="mt-2"><strong>Indirizzo dello studio:</strong> Viale Vittoria, 3, 43125 Parma (PR), Italia</p>
+        <p><strong>Indirizzo email di contatto:</strong> <a href="mailto:dr.perrino@protonmail.com" class="text-primary underline">dr.perrino@protonmail.com</a></p>
+      </div>
+
+      <hr class="border-slate-100">
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-slate-800 mb-3">2. Tipologia di dati raccolti e finalità</h2>
+        <p>Questo sito web ha principalmente natura informativa e istituzionale. Durante la navigazione o l'utilizzo delle sezioni dedicate, possono essere trattate le seguenti categorie di dati:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-2">
+          <li><strong>Dati di navigazione:</strong> I sistemi informatici e le procedure software preposte al funzionamento di questo sito acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet (es. indirizzi IP, indirizzi URI delle risorse richieste).</li>
+          <li><strong>Dati forniti volontariamente dall'utente:</strong> Eventuali dati inseriti nel modulo di contatto/prenotazione (nome, cognome, indirizzo email, numero di telefono, tipologia di visita e note) sono trattati esclusivamente al fine di gestire le richieste di informazioni o di appuntamento. Attualmente, i dati inseriti nel form sul sito non vengono memorizzati permanentemente su server o database automatizzati, ma costituiscono una richiesta inoltrabile tramite canali diretti.</li>
+        </ul>
+      </div>
+
+      <hr class="border-slate-100">
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-slate-800 mb-3">3. Cookie e servizi di terze parti</h2>
+        <p>Questo sito utilizza cookie tecnici strettamente necessari al funzionamento della piattaforma e cookie di terze parti previo consenso dell'utente.</p>
+        <p class="mt-2"><strong>Google Maps:</strong> Nalla sezione contatti è integrata una mappa interattiva fornita da Google Ireland Limited. Tale servizio viene attivato e caricato solo previo esplicito consenso dell'utente (tramite banner dei cookie o interazione manuale), al fine di evitare l'invio preventivo di dati di navigazione a Google.</p>
+      </div>
+
+      <hr class="border-slate-100">
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-slate-800 mb-3">4. Base giuridica del trattamento</h2>
+        <p>Il trattamento dei dati personali si fonda sul consenso espresso dall'utente mediante la navigazione del sito o l'invio volontario di richieste, nonché sulla necessità di adempiere a obblighi di legge o professionali connessi all'attività medica.</p>
+      </div>
+
+      <hr class="border-slate-100">
+
+      <div>
+        <h2 class="font-display text-xl font-bold text-slate-800 mb-3">5. Diritti dell'interessato</h2>
+        <p>Gli utenti (gli interessati) hanno il diritto in qualunque momento di ottenere la conferma dell'esistenza o meno dei propri dati personali, di conoscerne il contenuto e l'origine, di verificarne l'esattezza o chiederne l'integrazione, l'aggiornamento, oppure la rettificazione (artt. 15 e ss. del GDPR).</p>
+        <p class="mt-2">Le richieste vanno rivolte via email al Titolare all'indirizzo: <a href="mailto:dr.perrino@protonmail.com" class="text-primary underline">dr.perrino@protonmail.com</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+    <div>
+      <p class="font-display text-lg font-bold text-white mb-1">Dr. Felice Perrino</p>
+      <p class="text-sm text-slate-500 mb-3">Cardiologia clinica</p>
+      <p class="text-sm text-slate-400">Ascolto, prevenzione e percorsi cardiologici costruiti intorno alla persona.</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Studio</p>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittoria%2C+3%2C+43125+Parma+PR%2C+Italia" class="hover:text-white" target="_blank" rel="noopener">Viale Vittoria, 3, 43125 Parma PR</a>
+        </li>
+        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Telefono da confermare</li>
+        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> dr.perrino@protonmail.com</li>
+        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Orari da confermare</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Esplora</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="trattamenti.html" class="hover:text-white">Trattamenti</a></li>
+        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
+        <li><a href="contatti.html" class="hover:text-white">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Note legali</p>
+      <p class="text-sm text-slate-400">Iscrizione Ordine dei Medici — dato da confermare. P.IVA da confermare.</p>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+    <p>&copy; <span class="current-year"></span> Dr. Felice Perrino. Tutti i diritti riservati.</p>
+    <p><a href="privacy.html" class="hover:text-slate-300 underline">Informativa privacy</a> · Cookie · Note legali</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
