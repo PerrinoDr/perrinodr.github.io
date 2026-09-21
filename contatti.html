@@ -17,29 +17,55 @@
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 <script>
 window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#2d3748",
-      "text": "#ffffff"
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#2d3748",
+        "text": "#ffffff"
+      },
+      "button": {
+        "background": "#319795",
+        "text": "#ffffff"
+      }
     },
-    "button": {
-      "background": "#319795",
-      "text": "#ffffff"
+    "theme": "classic",
+    "position": "bottom",
+    "type": "opt-in",
+    "content": {
+      "message": "Questo sito utilizza cookie tecnici e di terze parti per migliorare l'esperienza di navigazione.",
+      "dismiss": "Rifiuta",
+      "allow": "Accetta tutti",
+      "link": "Privacy Policy",
+      "href": "privacy.html"
+    },
+    // Controlla direttamente lo stato dell'utente all'avvio
+    onInitialise: function (status) {
+      if (status === 'allow') {
+        unlockMap();
+      }
+    },
+    // Controlla direttamente quando l'utente clicca su "Accetta tutti"
+    onStatusChange: function (status, chosenBefore) {
+      if (status === 'allow') {
+        unlockMap();
+      }
     }
-  },
-  "theme": "classic",
-  "position": "bottom",
-  "type": "opt-in",
-  "content": {
-    "message": "Questo sito utilizza cookie tecnici e di terze parti per migliorare l'esperienza di navigazione.",
-    "dismiss": "Rifiuta",
-    "allow": "Accetta tutti",
-    "link": "Privacy Policy",
-    "href": "privacy.html"
+  });
+});
+
+// Funzione globale di sblocco della mappa
+function unlockMap() {
+  const googleMap = document.getElementById('google-map');
+  const mapOverlay = document.getElementById('map-consent-overlay');
+  
+  if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
+    googleMap.src = googleMap.dataset.src;
+    googleMap.classList.remove('hidden');
+    if (mapOverlay) {
+      mapOverlay.style.display = 'none';
+    }
   }
-});
-});
+}
 </script>
 </head>
 <body class="antialiased">
