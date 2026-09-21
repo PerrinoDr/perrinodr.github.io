@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/style.css">
 
+<!-- hCaptcha -->
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 <!-- Cookie Consent by Osano -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
@@ -327,7 +330,9 @@ function unlockMap() {
       class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary"
       placeholder="Eventuali informazioni utili per la visita..."></textarea>
   </div>
-
+<!-- Aggiunta del widget hCaptcha con zero-configurazione -->
+  <div class="h-captcha" data-sitekey="50b26364-2820-43d4-90f7-f161c16543b5"></div>
+  
   <button type="submit" class="btn-primary w-full py-3.5 rounded-full font-semibold">Invia richiesta di appuntamento</button>
   <p class="text-xs text-center" style="color:var(--color-ink-soft)">I dati saranno inviati direttamente allo studio medico.</p>
 </form>
