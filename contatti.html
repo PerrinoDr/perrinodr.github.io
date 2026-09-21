@@ -266,69 +266,71 @@ function unlockMap() {
       <h2 class="font-display text-2xl font-bold text-slate-800 mb-2">Prenota una visita</h2>
       <p class="text-sm mb-6" style="color:var(--color-ink-soft)">Il modulo verifica i dati ma non li invia finché non sarà collegato il recapito reale dello studio.</p>
 
-      <form id="booking-form" class="space-y-5" novalidate>
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label for="nome" class="block text-sm font-medium mb-1.5">Nome</label>
-            <input id="nome" name="nome" type="text" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-            <p id="err-nome" class="hidden text-xs text-red-500 mt-1">Inserisci il tuo nome.</p>
-          </div>
-          <div>
-            <label for="cognome" class="block text-sm font-medium mb-1.5">Cognome</label>
-            <input id="cognome" name="cognome" type="text" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-            <p id="err-cognome" class="hidden text-xs text-red-500 mt-1">Inserisci il tuo cognome.</p>
-          </div>
-        </div>
+<form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+  
+  <!-- Chiave di accesso generata per il tuo account Web3Forms -->
+  <input type="hidden" name="apikey" value="66d1638a-5680-48d8-83e6-038bb0b46a0">
+  
+  <!-- Oggetto dell'email che riceverai -->
+  <input type="hidden" name="subject" value="Nuova richiesta di appuntamento dal sito web">
 
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label for="email" class="block text-sm font-medium mb-1.5">Email</label>
-            <input id="email" name="email" type="email" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-            <p id="err-email" class="hidden text-xs text-red-500 mt-1">Inserisci un'email valida.</p>
-          </div>
-          <div>
-            <label for="telefono" class="block text-sm font-medium mb-1.5">Telefono</label>
-            <input id="telefono" name="telefono" type="tel" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-            <p id="err-telefono" class="hidden text-xs text-red-500 mt-1">Inserisci un numero di telefono.</p>
-          </div>
-        </div>
+  <div class="grid sm:grid-cols-2 gap-5">
+    <div>
+      <label for="nome" class="block text-sm font-medium mb-1.5">Nome</label>
+      <input id="nome" name="nome" type="text" required
+        class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+    </div>
+    <div>
+      <label for="cognome" class="block text-sm font-medium mb-1.5">Cognome</label>
+      <input id="cognome" name="cognome" type="text" required
+        class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+    </div>
+  </div>
 
-        <div>
-          <label for="tipo-visita" class="block text-sm font-medium mb-1.5">Tipo di visita</label>
-          <select id="tipo-visita" name="tipo-visita" required
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary bg-white">
-            <option value="">Seleziona una prestazione</option>
-            <option>Visita cardiologica</option>
-            <option>Elettrocardiogramma</option>
-            <option>Ecocardiogramma</option>
-            <option>Holter cardiaco</option>
-            <option>Holter pressorio</option>
-            <option>Prevenzione cardiovascolare</option>
-            <option>Altro</option>
-          </select>
-          <p id="err-tipo-visita" class="hidden text-xs text-red-500 mt-1">Seleziona il tipo di visita.</p>
-        </div>
+  <div class="grid sm:grid-cols-2 gap-5">
+    <div>
+      <label for="email" class="block text-sm font-medium mb-1.5">Email</label>
+      <input id="email" name="email" type="email" required
+        class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+    </div>
+    <div>
+      <label for="telefono" class="block text-sm font-medium mb-1.5">Telefono</label>
+      <input id="telefono" name="telefono" type="tel" required
+        class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+    </div>
+  </div>
 
-        <div>
-          <label for="data" class="block text-sm font-medium mb-1.5">Data preferita</label>
-          <input id="data" name="data" type="date"
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-        </div>
+  <div>
+    <label for="tipo-visita" class="block text-sm font-medium mb-1.5">Tipo di visita</label>
+    <select id="tipo-visita" name="tipo-visita" required
+      class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary bg-white">
+      <option value="">Seleziona una prestazione</option>
+      <option value="Visita cardiologica">Visita cardiologica</option>
+      <option value="Elettrocardiogramma">Elettrocardiogramma</option>
+      <option value="Ecocardiogramma">Ecocardiogramma</option>
+      <option value="Holter cardiaco">Holter cardiaco</option>
+      <option value="Holter pressorio">Holter pressorio</option>
+      <option value="Prevenzione cardiovascolare">Prevenzione cardiovascolare</option>
+      <option value="Altro">Altro</option>
+    </select>
+  </div>
 
-        <div>
-          <label for="note" class="block text-sm font-medium mb-1.5">Note (facoltative)</label>
-          <textarea id="note" name="note" rows="4"
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary"
-            placeholder="Eventuali informazioni utili per la visita..."></textarea>
-        </div>
+  <div>
+    <label for="data" class="block text-sm font-medium mb-1.5">Data preferita</label>
+    <input id="data" name="data" type="date"
+      class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+  </div>
 
-        <button type="submit" class="btn-primary w-full py-3.5 rounded-full font-semibold">Verifica richiesta</button>
-        <p class="text-xs text-center" style="color:var(--color-ink-soft)">Nessun dato viene memorizzato o trasmesso.</p>
-      </form>
+  <div>
+    <label for="note" class="block text-sm font-medium mb-1.5">Note (facoltative)</label>
+    <textarea id="note" name="note" rows="4"
+      class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary"
+      placeholder="Eventuali informazioni utili per la visita..."></textarea>
+  </div>
+
+  <button type="submit" class="btn-primary w-full py-3.5 rounded-full font-semibold">Invia richiesta di appuntamento</button>
+  <p class="text-xs text-center" style="color:var(--color-ink-soft)">I dati saranno inviati direttamente allo studio medico.</p>
+</form>
     </div>
   </div>
 
