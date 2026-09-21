@@ -135,3 +135,35 @@ document.getElementById('close-modal')?.addEventListener('click', () => {
 document.querySelectorAll('.current-year').forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
+
+// ============ Gestione blocco e sblocco Google Maps (GDPR) ============
+
+// Funzione globale richiamata dal banner dei cookie nell'HTML (<head>)
+function unlockMap() {
+  const googleMap = document.getElementById('google-map');
+  const mapOverlay = document.getElementById('map-consent-overlay');
+
+  if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
+    googleMap.src = googleMap.dataset.src; 
+    googleMap.classList.remove('hidden');
+    if (mapOverlay) {
+      mapOverlay.style.display = 'none'; 
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loadMapBtn = document.getElementById('load-map-btn');
+
+  // Sblocco manuale tramite il pulsante nel box della mappa
+  if (loadMapBtn) {
+    loadMapBtn.addEventListener('click', () => {
+      unlockMap();
+    });
+  }
+
+  // Sblocco automatico se l'utente aveva già accettato in precedenza
+  if (document.cookie.includes('cookieconsent_status=allow')) {
+    unlockMap();
+  }
+});
