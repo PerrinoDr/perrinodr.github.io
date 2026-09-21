@@ -137,44 +137,33 @@ document.querySelectorAll('.current-year').forEach((el) => {
 });
 
 // ============ Gestione blocco e sblocco Google Maps (GDPR) ============
-function initMapConsent() {
-  const loadMapBtn = document.getElementById('load-map-btn');
-  const mapOverlay = document.getElementById('map-consent-overlay');
-  const googleMap = document.getElementById('google-map');
 
-  function enableMap() {
-    if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
-      googleMap.src = googleMap.dataset.src; 
-      googleMap.classList.remove('hidden');
-      if (mapOverlay) {
-        mapOverlay.style.display = 'none'; 
-      }
+// Funzione globale richiamata dal banner dei cookie nell'HTML (<head>)
+function unlockMap() {
+  const googleMap = document.getElementById('google-map');
+  const mapOverlay = document.getElementById('map-consent-overlay');
+
+  if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
+    googleMap.src = googleMap.dataset.src; 
+    googleMap.classList.remove('hidden');
+    if (mapOverlay) {
+      mapOverlay.style.display = 'none'; 
     }
   }
+}
 
-  // Sblocco tramite pulsante manuale sul box della mappa
+document.addEventListener("DOMContentLoaded", () => {
+  const loadMapBtn = document.getElementById('load-map-btn');
+
+  // Sblocco manuale tramite il pulsante nel box della mappa
   if (loadMapBtn) {
     loadMapBtn.addEventListener('click', () => {
-      enableMap();
+      unlockMap();
     });
   }
 
-  // Sblocco automatico se l'utente ha già accettato in una sessione precedente
+  // Sblocco automatico se l'utente aveva già accettato in precedenza
   if (document.cookie.includes('cookieconsent_status=allow')) {
-    enableMap();
+    unlockMap();
   }
-
-  // Sblocco automatico quando si clicca "Accetta tutti" sul banner di Osano
-  document.addEventListener('click', (e) => {
-    if (e.target.matches('.cc-allow') || e.target.closest('.cc-allow')) {
-      setTimeout(enableMap, 300);
-    }
-  });
-}
-
-// Esegue subito se il DOM è pronto, altrimenti attende
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMapConsent);
-} else {
-  initMapConsent();
-}
+});
