@@ -210,19 +210,21 @@
   </div>
 </div>
 
-<!-- ============ CTA ============ -->
-<section class="bg-primary py-16 md:py-20">
-  <div class="max-w-4xl mx-auto px-6 text-center reveal">
-    <p class="text-white/70 font-semibold mb-3">Il primo passo</p>
-    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Prenditi cura del tuo cuore.</h2>
-    <p class="text-white/80 mb-8 max-w-xl mx-auto">Richiedi una visita cardiologica specialistica.</p>
-    <a href="contatti.html" class="btn-gold inline-block px-8 py-3.5 rounded-full font-semibold">Prenota un appuntamento</a>
-  </div>
-</section>
+
 
 </main>
 
-
+<!-- ============ MODAL DETTAGLIO SERVIZIO ============ -->
+<div id="service-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 px-6">
+  <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
+    <button id="close-service-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600" aria-label="Chiudi">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <h3 id="modal-title" class="font-display text-xl font-bold text-slate-800 mb-3"></h3>
+    <p id="modal-text" class="text-sm" style="color:var(--color-ink-soft)"></p>
+    <a href="contatti.html" class="btn-primary inline-block mt-6 px-6 py-3 rounded-full text-sm font-semibold">Prenota questa visita</a>
+  </div>
+</div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
