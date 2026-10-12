@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trattamenti cardiologici | Dr. Perrino</title>
+<meta name="description" content="Visite, esami diagnostici e percorsi di prevenzione cardiologica personalizzati.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#cdd7cf] shadow-sm transition-shadow">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 relative">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>
+      <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
+      <span class="font-display leading-tight">
+        <span class="block text-sm font-bold text-primary">Dr. Felice Perrino</span>
+        <span class="block text-[11px] font-medium" style="color:var(--color-ink-soft)">Medico Cardiologo</span>
+      </span>
+    </a>
+
+    <!-- Navigazione Desktop Principale -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="sintomi.html" class="nav-link">Sintomi Comuni</a>
+      <a href="ilmioapproccio.html" class="nav-link">Il mio approccio clinico</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contatti.html" class="nav-link">Contatti</a>
+    </nav>
+
+    <!-- Sezione Destra: Icona Menu circolare (a sinistra) e tasto Prenota visita -->
+    <div class="flex items-center gap-3 relative">
+      <!-- Pulsante Menu circolare nero con dimensioni fisse (w-11 h-11) per evitare che diventi enorme -->
+      <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0" aria-label="Apri menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+
+      <!-- Menu a tendina posizionato in modo assoluto sotto l'icona -->
+      <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Home</a>
+        <a href="sintomi.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Sintomi Comuni</a>
+        <a href="ilmioapproccio.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Il mio approccio clinico</a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Blog</a>
+        <a href="contatti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Contatti</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Script per la gestione del click del menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      // Chiudi il menu se si clicca fuori
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+</script>
+
+<main class="pt-20">
+
+<!-- ============ SEZIONE HERO / INTRO ============ -->
+<section class="max-w-4xl mx-auto px-6 pt-14 pb-8">
+  <div class="text-center">
+    <span class="text-xs font-bold text-primary uppercase tracking-wider">Profilo professionale</span>
+    <h1 class="font-display font-bold text-3xl md:text-5xl text-slate-800 mt-2 mb-4">La mia storia</h1>
+    <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+      Dott. Felice Perrino – Cardiologo a Parma
+    </p>
+  </div>
+</section>
+
+<!-- ============ SEZIONE CONTENUTO PRINCIPALE ============ -->
+<section class="max-w-4xl mx-auto px-6 py-8 md:py-12">
+  <div class="space-y-8">
+
+    <!-- Card 1: Introduzione e Profilo -->
+    <div class="card rounded-2xl p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white">
+      <div class="flex items-start gap-5">
+        <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
+          <i data-lucide="user" class="w-6 h-6 text-primary"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Cardiologo a Parma</span>
+          <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Dedizione, diagnosi e cura cardiovascolare</h2>
+          <p class="text-slate-600 leading-relaxed">
+            Sono specializzato in Cardiologia a Parma e mi dedico ogni giorno alla prevenzione, alla diagnosi e alla cura delle patologie cardiovascolari, con un focus specifico sulla diagnostica per immagini.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: L'approccio clinico -->
+    <div class="card rounded-2xl p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white">
+      <div class="flex items-start gap-5">
+        <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
+          <i data-lucide="stethoscope" class="w-6 h-6 text-primary"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Metodo di lavoro</span>
+          <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">L'approccio clinico</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Una valutazione cardiologica corretta parte sempre dall'ascolto. Dedicare il giusto tempo alla storia clinica, ai sintomi e alle abitudini del paziente è il primo passo per impostare un percorso diagnostico mirato.
+          </p>
+          <div class="bg-sage/50 rounded-2xl p-5 border border-sage">
+            <p class="text-sm font-medium text-slate-700 flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <span>Nel mio studio di Parma offro un approccio aggiornato e basato sulle più recenti linee guida scientifiche, spiegando l'esito della visita e degli esami in modo chiaro e diretto, senza ricorrere a un gergo tecnico incomprensibile.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Formazione e Specializzazione -->
+    <div class="card rounded-2xl p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white">
+      <div class="flex items-start gap-5">
+        <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
+          <i data-lucide="award" class="w-6 h-6 text-primary"></i>
+        </div>
+        <div class="w-full">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Eccellenza diagnostica</span>
+          <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Formazione e specializzazione nell'imaging cardiovascolare</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Negli anni della mia formazione e della pratica clinica ho approfondito le metodiche ecografiche tradizionali e avanzate, come l'ecocardiografia transesofagea e l'ecocardiogramma da sforzo (ecostress).
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Per affinare la diagnosi delle patologie strutturali e coronariche più complesse, ho completato la mia preparazione presso centri di riferimento nazionale:
+          </p>
+
+          <!-- Lista Corsi / Master -->
+          <div class="space-y-3 mb-6">
+            <div class="bg-sage/40 rounded-xl p-4 border border-sage flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-slate-800">
+                <strong>Corso Master TC Cardiaca:</strong> corso di perfezionamento avanzato presso il Centro Cardiologico Monzino di Milano.
+              </span>
+            </div>
+            <div class="bg-sage/40 rounded-xl p-4 border border-sage flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-slate-800">
+                <strong>Master in Risonanza Magnetica Cardiaca:</strong> Master universitario conseguito presso l'Università degli Studi di Padova.
+              </span>
+            </div>
+          </div>
+
+          <p class="text-slate-600 leading-relaxed">
+            L'integrazione tra la visita clinica e le tecnologie di imaging ad alta risoluzione permette di definire il quadro diagnostico con precisione e accuratezza.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Cardiologia dello Sport e Stile di Vita -->
+    <div class="card rounded-2xl p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white">
+      <div class="flex items-start gap-5">
+        <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
+          <i data-lucide="activity" class="w-6 h-6 text-primary"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Attività e Benessere</span>
+          <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Cardiologia dello sport e stile di vita</h2>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Sono iscritto alla <strong>Federazione Medico Sportiva Italiana (FMSI)</strong> e mi occupo di Cardiologia dello sport, valutando la salute cardiovascolare di chi pratica attività motoria, sia a livello amatoriale che agonistico, per garantire una pratica sportiva in sicurezza.
+          </p>
+          <div class="bg-sage/50 rounded-2xl p-5 border border-sage">
+            <p class="text-sm font-medium text-slate-700 flex items-start gap-2">
+              <i data-lucide="heart" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <span>Considero la prevenzione un principio pratico prima che teorico: nella vita quotidiana applico gli stessi consigli che do in ambulatorio, mantenendomi attivo attraverso lo sport e le camminate all'aria aperta con il mio cane.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============ MODAL DETTAGLIO SERVIZIO ============ -->
+<div id="service-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 px-6">
+  <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
+    <button id="close-service-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600" aria-label="Chiudi">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <h3 id="modal-title" class="font-display text-xl font-bold text-slate-800 mb-3"></h3>
+    <p id="modal-text" class="text-sm" style="color:var(--color-ink-soft)"></p>
+    <a href="contatti.html" class="btn-primary inline-block mt-6 px-6 py-3 rounded-full text-sm font-semibold">Prenota questa visita</a>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+    <div>
+      <p class="font-display text-lg font-bold text-white mb-1">Dr. Felice Perrino</p>
+      <p class="text-sm text-slate-500 mb-3">Cardiologia clinica</p>
+      <p class="text-sm text-slate-400">Ascolto, prevenzione e percorsi cardiologici costruiti intorno alla persona.</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Studio</p>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittoria%2C+3%2C+43125+Parma+PR%2C+Italia" class="hover:text-white" target="_blank" rel="noopener">Viale Vittoria, 3, 43125 Parma PR</a>
+        </li>
+        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Telefono da confermare</li>
+        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> dr.perrino@protonmail.com</li>
+        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Orari da confermare</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Esplora</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="sintomi.html" class="hover:text-white">Sintomi Comuni</a></li>
+        <li><a href="ilmioapproccio.html" class="hover:text-white">Il mio approccio clinico</a></li>
+        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
+        <li><a href="contatti.html" class="hover:text-white">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Note legali</p>
+      <p class="text-sm text-slate-400">Iscrizione Ordine dei Medici — dato da confermare. P.IVA da confermare.</p>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+    <p>&copy; <span class="current-year"></span> Dr. Felice Perrino. Tutti i diritti riservati.</p>
+    <p>Informativa privacy · Cookie · Note legali</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+  const serviceModal = document.getElementById('service-modal');
+  document.querySelectorAll('.open-modal').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.getElementById('modal-title').textContent = btn.dataset.title;
+      document.getElementById('modal-text').textContent = btn.dataset.text;
+      serviceModal.classList.remove('hidden');
+    });
+  });
+  document.getElementById('close-service-modal').addEventListener('click', () => serviceModal.classList.add('hidden'));
+  serviceModal.addEventListener('click', (e) => { if (e.target === serviceModal) serviceModal.classList.add('hidden'); });
+
+  const treatFilters = document.querySelectorAll('.treat-filter');
+  const treatCards = document.querySelectorAll('.treat-card');
+  treatFilters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      treatFilters.forEach((b) => b.classList.remove('bg-primary', 'text-white'));
+      btn.classList.add('bg-primary', 'text-white');
+      const cat = btn.dataset.category;
+      treatCards.forEach((card) => {
+        card.style.display = (cat === 'tutti' || card.dataset.category === cat) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
