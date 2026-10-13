@@ -105,10 +105,11 @@ document.querySelectorAll('.current-year').forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
 
-// ============ Gestione blocco e sblocco Google Maps (GDPR) ============
+// ============ Gestione blocco e sblocco Google Maps e Video (GDPR) ============
 
 // Funzione globale richiamata dal banner dei cookie nell'HTML (<head>)
 function unlockMap() {
+  // 1. Sblocco Google Maps (se presente nella pagina)
   const googleMap = document.getElementById('google-map');
   const mapOverlay = document.getElementById('map-consent-overlay');
 
@@ -117,6 +118,24 @@ function unlockMap() {
     googleMap.classList.remove('hidden');
     if (mapOverlay) {
       mapOverlay.style.display = 'none'; 
+    }
+  }
+
+  // 2. Sblocco Video Dailymotion (se presente nella pagina)
+  const videoContainer = document.getElementById('video-container');
+  const videoPlaceholder = document.getElementById('video-cookie-placeholder');
+  const videoWrapper = document.getElementById('video-wrapper');
+
+  if (videoContainer && videoPlaceholder && videoWrapper) {
+    videoPlaceholder.classList.add('hidden');
+    videoContainer.classList.remove('hidden');
+    
+    // Inserisce dinamicamente lo script del player solo dopo il consenso
+    if (!videoWrapper.querySelector('script')) {
+      const script = document.createElement('script');
+      script.src = "https://geo.dailymotion.com/player/x1khla.js";
+      script.setAttribute('data-video', 'k30Uh8bDgMTKSdKFByG');
+      videoWrapper.appendChild(script);
     }
   }
 }
