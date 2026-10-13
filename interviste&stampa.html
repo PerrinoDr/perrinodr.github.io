@@ -53,6 +53,20 @@ window.addEventListener("load", function(){
   });
 });
 
+// Funzione globale di sblocco della mappa
+function unlockMap() {
+  const googleMap = document.getElementById('google-map');
+  const mapOverlay = document.getElementById('map-consent-overlay');
+  
+  if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
+    googleMap.src = googleMap.dataset.src;
+    googleMap.classList.remove('hidden');
+    if (mapOverlay) {
+      mapOverlay.style.display = 'none';
+    }
+  }
+}
+
 </script>
 </head>
 <body class="antialiased">
