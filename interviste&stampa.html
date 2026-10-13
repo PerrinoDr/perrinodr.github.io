@@ -203,28 +203,9 @@ function unlockMap() {
             <p>Conoscere significa prevenire.</p>
             <p>Grazie e buona Giornata del Cuore a tutti.</p>
 
- <!-- INSERIMENTO VIDEO CON IFRAME CORRETTO -->
 <div class="mt-6 max-w-xl mx-auto">
-  <!-- Contenitore del video (nascosto di default) -->
-  <div id="video-container" class="hidden rounded-2xl shadow-md bg-black overflow-hidden" style="position:relative; padding-bottom:56.25%; height:0;">
-    <iframe id="dailymotion-video" 
-            data-src="https://geo.dailymotion.com/player/x1khla.html?video=k30Uh8bDgMTKSdKFByG" 
-            class="absolute top-0 left-0 w-full h-full border-0" 
-            allowfullscreen 
-            allow="autoplay; fullscreen; picture-in-picture">
-    </iframe>
-  </div>
-
-  <!-- Avviso se i cookie non sono ancora stati accettati -->
-  <div id="video-cookie-placeholder" class="p-6 bg-slate-50 border border-slate-200 rounded-2xl text-center">
-    <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center mx-auto mb-3">
-      <i data-lucide="cookie" class="w-5 h-5 text-primary"></i>
-    </div>
-    <p class="text-sm text-slate-800 font-semibold mb-1">Contenuto multimediale bloccato</p>
-    <p class="text-xs text-slate-600 mb-4">Per guardare il video di Dailymotion è necessario accettare i cookie di terze parti.</p>
-    <button type="button" onclick="if(window.cookieconsent) window.cookieconsent.open();" class="px-4 py-2 bg-primary text-white text-xs font-semibold rounded-xl hover:opacity-90 transition-opacity">
-      Accetta Cookie
-    </button>
+  <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;" class="rounded-2xl shadow-md bg-black">
+    <script src="https://geo.dailymotion.com/player/x1khla.js" data-video="k30Uh8bDgMTKSdKFByG"></script>
   </div>
 </div>
 
