@@ -203,13 +203,18 @@ function unlockMap() {
             <p>Conoscere significa prevenire.</p>
             <p>Grazie e buona Giornata del Cuore a tutti.</p>
 
-          <!-- INSERIMENTO VIDEO CON BLOCCO COOKIE -->
+                    <!-- INSERIMENTO VIDEO CON BLOCCO COOKIE -->
+                    <div class="mt-6 max-w-xl mx-auto">
+          <!-- INSERIMENTO VIDEO CON IFRAME PROTETTO GDPR -->
           <div class="mt-6 max-w-xl mx-auto">
-            <!-- Contenitore del video (nascosto di default) -->
-            <div id="video-container" class="hidden">
-              <div id="video-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;" class="rounded-2xl shadow-md bg-black">
-                <!-- Lo script Dailymotion verrà inserito qui solo dopo l'accettazione -->
-              </div>
+            <!-- Contenitore del video (nascosto di default con classe hidden) -->
+            <div id="video-container" class="hidden rounded-2xl shadow-md bg-black overflow-hidden" style="position:relative; padding-bottom:56.25%; height:0;">
+              <iframe id="dailymotion-video" 
+                      data-src="https://www.dailymotion.com/embed/video/k30Uh8bDgMTKSdKFByG?autoplay=1" 
+                      class="absolute top-0 left-0 w-full h-full border-0" 
+                      allowfullscreen 
+                      allow="autoplay; fullscreen; picture-in-picture">
+              </iframe>
             </div>
 
             <!-- Avviso se i cookie non sono ancora stati accettati -->
@@ -224,7 +229,6 @@ function unlockMap() {
               </button>
             </div>
           </div>
-            
           </div>
 
           <div class="mt-6 pt-4 border-t border-slate-100">
