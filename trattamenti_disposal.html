@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="antialiased">
-<!-- 1. Inserisci questo script (idealmente subito dopo il tag di apertura <body> della pagina, va caricato una sola volta) -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.com/it_IT/sdk.js#xfbml=1&version=v18.0"></script>
 
 <!-- ============ NAVBAR ============ -->
 <header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#cdd7cf] shadow-sm transition-shadow">
@@ -246,11 +244,17 @@
 
 <!--Video -->
 
-<!-- 2. Inserisci questo blocco nel punto esatto in cui vuoi che appaia il video -->
-<div class="fb-video" 
-     data-href="https://www.facebook.com/share/v/1NBZCzjQPs/" 
-     data-width="500" 
-     data-show-text="false">
+<!-- Blocco per incorporare il video in modo pulito e responsive -->
+<div class="video-container" style="position: relative; width: 100%; max-width: 500px; margin: 0 auto; overflow: hidden; border-radius: 8px;">
+  <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3DIL_TUO_ID_VIDEO&show_text=false&width=500" 
+          width="500" 
+          height="460" 
+          style="border:none;overflow:hidden;width:100%;aspect-ratio: 9/16;" 
+          scrolling="no" 
+          frameborder="0" 
+          allowfullscreen="true" 
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+</iframe>
 </div>
 
 </main>
