@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trattamenti cardiologici | Dr. Perrino</title>
-  <meta name="description" content="Visite, esami diagnostici e percorsi di prevenzione cardiologica personalizzati.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trattamenti cardiologici | Dr. Perrino</title>
+<meta name="description" content="Visite, esami diagnostici e percorsi di prevenzione cardiologica personalizzati.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body class="antialiased">
 
 <!-- ============ NAVBAR ============ -->
 <header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#cdd7cf] shadow-sm transition-shadow">
-  <div class="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between h-20 relative">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 relative">
     <!-- Logo -->
     <a href="index.html" class="flex items-center gap-2">
       <i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>
@@ -28,8 +28,8 @@
 
     <!-- Navigazione Desktop Principale -->
     <nav class="hidden md:flex items-center gap-8">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="sintomi.html" class="nav-link active">Sintomi Comuni</a>
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="sintomi.html" class="nav-link">Sintomi Comuni</a>
       <a href="ilmioapproccio.html" class="nav-link">Il mio approccio clinico</a>
       <a href="lamiastoria.html" class="nav-link">La mia storia</a>
       <a href="interviste&stampa.html" class="nav-link">Interviste e stampa</a>
@@ -37,14 +37,15 @@
       <a href="contatti.html" class="nav-link">Contatti</a>
     </nav>
 
-    <!-- Sezione Destra: Icona Menu circolare per Mobile -->
+    <!-- Sezione Destra: Icona Menu circolare (a sinistra) e tasto Prenota visita -->
     <div class="flex items-center gap-3 relative">
-      <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0 md:hidden" aria-label="Apri menu" aria-expanded="false">
+      <!-- Pulsante Menu circolare nero con dimensioni fisse (w-11 h-11) per evitare che diventi enorme -->
+      <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0" aria-label="Apri menu" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
 
-      <!-- Menu a tendina Mobile -->
-      <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
+      <!-- Menu a tendina posizionato in modo assoluto sotto l'icona -->
+       <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
         <a href="index.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Home</a>
         <a href="sintomi.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Sintomi Comuni</a>
         <a href="ilmioapproccio.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Il mio approccio clinico</a>
@@ -57,21 +58,46 @@
   </div>
 </header>
 
-<main class="pt-20">
-  <!-- ============ SEZIONE HERO / INTRO ============ -->
-  <section class="w-full px-4 sm:px-8 lg:px-12 pt-14 pb-8">
-    <div class="text-left">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider">Cardiologia</span>
-      <h1 class="font-display font-bold text-3xl md:text-5xl text-slate-800 mt-2 mb-4">I sintomi più comuni</h1>
-    </div>
-  </section>
+<!-- Script per la gestione del click del menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  <!-- ============ IMMAGINE DI APERTURA ============ -->
-  <div class="w-full px-4 sm:px-8 lg:px-12 mt-4">
-    <div class="rounded-3xl overflow-hidden shadow-sm border border-slate-100 bg-white p-4">
-      <img src="img/SintomiComuni.jpg" alt="Sintomi Comuni" class="w-full h-auto max-h-[400px] object-cover rounded-2xl">
-    </div>
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      // Chiudi il menu se si clicca fuori
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+</script>
+
+<main class="pt-20">
+<!-- ============ SEZIONE HERO / INTRO ============ -->
+<section class="max-w-4xl mx-auto px-6 pt-14 pb-8">
+  <div class="text-center">
+    <span class="text-xs font-bold text-primary uppercase tracking-wider">Cardiologia</span>
+    <h1 class="font-display font-bold text-3xl md:text-5xl text-slate-800 mt-2 mb-4">I sintomi più comuni</h1>
   </div>
+</section>
+
+  <!-- ============ IMMAGINE DI Apertura ============ -->
+<div class="max-w-4xl mx-auto px-6 mt-12 text-center">
+  <div class="rounded-3xl overflow-hidden shadow-sm border border-slate-100 bg-white p-4">
+    <img src="img/SintomiComuni.jpg" alt="Sintomi Comuni" class="w-full h-auto max-h-[400px] object-cover rounded-2xl mx-auto">
+  </div>
+</div>
 
   <!-- ============ SEZIONE CONTENUTO SINTOMI ============ -->
   <section class="w-full px-4 sm:px-8 lg:px-12 py-10 md:py-20">
@@ -189,6 +215,16 @@
 
     </div>
   </section>
+
+<!-- ============ IMMAGINE DI CHIUSURA DOPO IL QUINTO SINTOMO ============ -->
+<!--<div class="max-w-4xl mx-auto px-6 mt-12 text-center">
+  <div class="rounded-3xl overflow-hidden shadow-sm border border-slate-100 bg-white p-4">
+    <img src="img/trattamenti.jpg" alt="Fine sintomi" class="w-full h-auto max-h-[400px] object-cover rounded-2xl mx-auto">
+  </div>
+</div>-->
+
+
+
 </main>
 
 <!-- ============ MODAL DETTAGLIO SERVIZIO ============ -->
@@ -205,7 +241,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
-  <div class="w-full px-4 sm:px-8 lg:px-12 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
     <div>
       <p class="font-display text-lg font-bold text-white mb-1">Dr. Felice Perrino</p>
       <p class="text-sm text-slate-500 mb-3">Cardiologia clinica</p>
@@ -239,47 +275,14 @@
       <p class="text-sm text-slate-400">Iscrizione ordine medici provincia di parma n. 8003 - P. IVA 03100050347 - socio aggregato federazione medico sportiva italiana n. 24032</p>
     </div>
   </div>
-  <div class="w-full px-4 sm:px-8 lg:px-12 mt-12 pt-6 border-t border-slate-800 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+  <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
     <p>&copy; <span class="current-year"></span> Dr. Felice Perrino. Tutti i diritti riservati.</p>
     <p>Informativa privacy · Cookie · Note legali</p>
   </div>
 </footer>
 
-<!-- JavaScript per Menu e Modal -->
+<script src="js/script.js"></script>
 <script>
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Menu mobile toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('hidden');
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !expanded);
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-          mobileMenu.classList.add('hidden');
-          menuBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-
-    // Imposta anno corrente
-    const currentYearSpan = document.querySelector('.current-year');
-    if (currentYearSpan) {
-      currentYearSpan.textContent = new Date().getFullYear();
-    }
-  });
-
-  // Modal gestione
   const serviceModal = document.getElementById('service-modal');
   document.querySelectorAll('.open-modal').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -288,14 +291,21 @@
       serviceModal.classList.remove('hidden');
     });
   });
-  const closeModalBtn = document.getElementById('close-service-modal');
-  if(closeModalBtn) {
-    closeModalBtn.addEventListener('click', () => serviceModal.classList.add('hidden'));
-  }
-  if(serviceModal) {
-    serviceModal.addEventListener('click', (e) => { if (e.target === serviceModal) serviceModal.classList.add('hidden'); });
-  }
+  document.getElementById('close-service-modal').addEventListener('click', () => serviceModal.classList.add('hidden'));
+  serviceModal.addEventListener('click', (e) => { if (e.target === serviceModal) serviceModal.classList.add('hidden'); });
+
+  const treatFilters = document.querySelectorAll('.treat-filter');
+  const treatCards = document.querySelectorAll('.treat-card');
+  treatFilters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      treatFilters.forEach((b) => b.classList.remove('bg-primary', 'text-white'));
+      btn.classList.add('bg-primary', 'text-white');
+      const cat = btn.dataset.category;
+      treatCards.forEach((card) => {
+        card.style.display = (cat === 'tutti' || card.dataset.category === cat) ? '' : 'none';
+      });
+    });
+  });
 </script>
-<script src="js/script.js"></script>
 </body>
 </html>
