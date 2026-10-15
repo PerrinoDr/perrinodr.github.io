@@ -40,4 +40,262 @@
     <!-- Sezione Destra: Icona Menu circolare per Mobile -->
     <div class="flex items-center gap-3 relative">
       <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0 md:hidden" aria-label="Apri menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+
+      <!-- Menu a tendina Mobile -->
+      <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Home</a>
+        <a href="sintomi.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Sintomi Comuni</a>
+        <a href="ilmioapproccio.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Il mio approccio clinico</a>
+        <a href="lamiastoria.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">La mia storia</a> 
+        <a href="interviste&stampa.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Interviste e stampa</a> 
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Blog</a>
+        <a href="contatti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Contatti</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="pt-20">
+  <!-- ============ SEZIONE HERO / INTRO ============ -->
+  <section class="w-full px-4 sm:px-8 lg:px-12 pt-14 pb-8">
+    <div class="text-left">
+      <span class="text-xs font-bold text-primary uppercase tracking-wider">Cardiologia</span>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-slate-800 mt-2 mb-4">I sintomi più comuni</h1>
+    </div>
+  </section>
+
+  <!-- ============ IMMAGINE DI APERTURA ============ -->
+  <div class="w-full px-4 sm:px-8 lg:px-12 mt-4">
+    <div class="rounded-3xl overflow-hidden shadow-sm border border-slate-100 bg-white p-4">
+      <img src="img/SintomiComuni.jpg" alt="Sintomi Comuni" class="w-full h-auto max-h-[400px] object-cover rounded-2xl">
+    </div>
+  </div>
+
+  <!-- ============ SEZIONE CONTENUTO SINTOMI ============ -->
+  <section class="w-full px-4 sm:px-8 lg:px-12 py-10 md:py-20">
+    <div class="space-y-8 w-full">
+
+      <!-- Sintomo 1 -->
+      <div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full">
+        <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">
+            <img src="img/icone/sintomi01.svg" alt="Palpitazioni" class="w-6 h-6 shrink-0 object-contain">
+          </div>
+          <div class="w-full text-left">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">01 Sintomo</span>
+            <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Palpitazioni o la sensazione che il cuore "salti un battito"</h2>
+            <p class="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+              Sentire il cuore che improvvisamente accelera o batte in modo strano spaventa quasi tutti. Spesso dietro questi episodi ci sono solo periodi di forte stress, stanchezza, un po' di ansia o troppi caffè.
+            </p>
+            <div class="bg-sage/50 rounded-2xl p-4 sm:p-5 border border-sage">
+              <p class="text-xs sm:text-sm font-medium text-slate-700 flex items-start gap-2 text-left">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                <span>Con una visita e un elettrocardiogramma possiamo fare chiarezza: diamo un nome a quel fastidio per permetterti di tornare alle tue giornate senza il pensiero costante che ci sia qualcosa che non va.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sintomo 2 -->
+      <div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full">
+        <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">
+            <img src="img/icone/sintomi02.svg" alt="Pressione alta" class="w-6 h-6 shrink-0 object-contain">
+          </div>
+          <div class="w-full text-left">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">02 Sintomo</span>
+            <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Pressione alta o che "fa i capricci"</h2>
+            <p class="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+              Misurare la pressione a casa e trovare valori sballati, o vederla oscillare senza un motivo apparente, crea molta apprensione. L'ipertensione è subdola perché spesso non dà alcun sintomo fisico, ma lavora in silenzio.
+            </p>
+            <div class="bg-sage/50 rounded-2xl p-4 sm:p-5 border border-sage">
+              <p class="text-xs sm:text-sm font-medium text-slate-700 flex items-start gap-2 text-left">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                <span>Valutiamo insieme se si tratta soltanto di modificare lo stile di vita o di iniziare una terapia farmacologica, senza trasformare la misurazione in un'ossessione quotidiana.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sintomo 3 -->
+      <div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full">
+        <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">
+            <img src="img/icone/sintomi03.svg" alt="Affanno" class="w-6 h-6 shrink-0 object-contain">
+          </div>
+          <div class="w-full text-left">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">03 Sintomo</span>
+            <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Affanno per sforzi che prima facevi senza problemi</h2>
+            <p class="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+              Ti capita di avere il fiatone per una rampa di scale o una camminata un po' più veloce del solito? Il primo pensiero è quasi sempre: <em>"È che sono fuori allenamento"</em>.
+            </p>
+            <div class="bg-sage/50 rounded-2xl p-4 sm:p-5 border border-sage">
+              <p class="text-xs sm:text-sm font-medium text-slate-700 flex items-start gap-2 text-left">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                <span>Spesso è vero, ma a volte è necessario fare qualche approfondimento in più per evitare di sottovalutare la situazione, così da darti il via libera per muoverti e fare attività in totale sicurezza.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sintomo 4 -->
+      <div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full">
+        <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">
+            <img src="img/icone/sintomi04.svg" alt="Fastidi al petto" class="w-6 h-6 shrink-0 object-contain">
+          </div>
+          <div class="w-full text-left">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">04 Sintomo</span>
+            <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Fastidi, fitte o senso di peso al petto</h2>
+            <p class="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+              Un senso di oppressione o una fitta improvvisa al torace sono sintomi che non lasciano indifferenti. Spesso parliamo di un problema muscolare, di cattiva postura o di reflusso gastrico.
+            </p>
+            <div class="bg-sage/50 rounded-2xl p-4 sm:p-5 border border-sage">
+              <p class="text-xs sm:text-sm font-medium text-slate-700 flex items-start gap-2 text-left">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                <span>Se quella fitta al petto però non ci lascia sereni, il modo migliore per tranquillizzarsi è escludere una causa cardiologica con gli strumenti giusti.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sintomo 5 -->
+      <div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full">
+        <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0">
+            <img src="img/icone/sintomi05.svg" alt="Familiarità" class="w-6 h-6 shrink-0 object-contain">
+          </div>
+          <div class="w-full text-left">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">05 Sintomo</span>
+            <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4">Casi di cuore in famiglia (e la voglia di giocare d'anticipo)</h2>
+            <p class="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+              Quando un genitore o un parente stretto ha avuto problemi cardiaci, superati i 40 anni è inevitabile farsi qualche domanda sulla propria salute. Avere una "familiarità" non significa avere il destino segnato: è semplicemente un prezioso campanello che ci invita a giocare d'anticipo.
+            </p>
+            <div class="bg-sage/50 rounded-2xl p-4 sm:p-5 border border-sage">
+              <p class="text-xs sm:text-sm font-medium text-slate-700 flex items-start gap-2 text-left">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+                <span>Vediamoci per fare il punto sui tuoi fattori di rischio (colesterolo, fumo, stile di vita). La prevenzione non è fare esami a caso, ma costruire uno scudo su misura per proteggerti negli anni.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ============ MODAL DETTAGLIO SERVIZIO ============ -->
+<div id="service-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 px-6">
+  <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
+    <button id="close-service-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600" aria-label="Chiudi">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <h3 id="modal-title" class="font-display text-xl font-bold text-slate-800 mb-3"></h3>
+    <p id="modal-text" class="text-sm" style="color:var(--color-ink-soft)"></p>
+    <a href="contatti.html" class="btn-primary inline-block mt-6 px-6 py-3 rounded-full text-sm font-semibold">Prenota questa visita</a>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+  <div class="w-full px-4 sm:px-8 lg:px-12 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+    <div>
+      <p class="font-display text-lg font-bold text-white mb-1">Dr. Felice Perrino</p>
+      <p class="text-sm text-slate-500 mb-3">Cardiologia clinica</p>
+      <p class="text-sm text-slate-400">Ascolto, prevenzione e percorsi cardiologici costruiti intorno alla persona.</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Studio</p>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittoria%2C+3%2C+43125+Parma+PR%2C+Italia" class="hover:text-white" target="_blank" rel="noopener">Viale Vittoria, 3, 43125 Parma PR</a>
+        </li>
+        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Telefono 3757378001</li>
+        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> cardiologoperrino@gmail.com</li>
+        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Orari studio Lun-Ven 9:00 - 18:00</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Esplora</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="sintomi.html" class="hover:text-white">Sintomi Comuni</a></li>
+        <li><a href="ilmioapproccio.html" class="hover:text-white">Il mio approccio clinico</a></li>
+        <li><a href="lamiastoria.html" class="hover:text-white">La mia storia</a></li>
+        <li><a href="interviste&stampa.html" class="hover:text-white">Interviste e stampa</a></li>
+        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
+        <li><a href="contatti.html" class="hover:text-white">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Note legali</p>
+      <p class="text-sm text-slate-400">Iscrizione ordine medici provincia di parma n. 8003 - P. IVA 03100050347 - socio aggregato federazione medico sportiva italiana n. 24032</p>
+    </div>
+  </div>
+  <div class="w-full px-4 sm:px-8 lg:px-12 mt-12 pt-6 border-t border-slate-800 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+    <p>&copy; <span class="current-year"></span> Dr. Felice Perrino. Tutti i diritti riservati.</p>
+    <p>Informativa privacy · Cookie · Note legali</p>
+  </div>
+</footer>
+
+<!-- JavaScript per Menu e Modal -->
+<script>
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Menu mobile toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Imposta anno corrente
+    const currentYearSpan = document.querySelector('.current-year');
+    if (currentYearSpan) {
+      currentYearSpan.textContent = new Date().getFullYear();
+    }
+  });
+
+  // Modal gestione
+  const serviceModal = document.getElementById('service-modal');
+  document.querySelectorAll('.open-modal').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.getElementById('modal-title').textContent = btn.dataset.title;
+      document.getElementById('modal-text').textContent = btn.dataset.text;
+      serviceModal.classList.remove('hidden');
+    });
+  });
+  const closeModalBtn = document.getElementById('close-service-modal');
+  if(closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => serviceModal.classList.add('hidden'));
+  }
+  if(serviceModal) {
+    serviceModal.addEventListener('click', (e) => { if (e.target === serviceModal) serviceModal.classList.add('hidden'); });
+  }
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>
