@@ -3,73 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contatti e prenotazioni | Dr. Perrino</title>
-<meta name="description" content="Richiedi un appuntamento cardiologico con il Dr. Felice Perrino.">
+<title>Dr. Felice Perrino | Cardiologo</title>
+<!-- META DESCRIPTION (La descrizione che appare sotto il titolo su Google) -->
+  <meta name="description" content="Studio cardiologico a Parma del Dr. Felice Perrino. Prenota una visita cardiologica privata, esami diagnostici e percorsi di prevenzione personalizzati.">
+  
+  <!-- META KEYWORDS (Le tue parole chiave) -->
+  <meta name="keywords" content="cardiologo Parma, studio cardiologico Parma, visita cardiologica privata Parma, miglior cardiologo Parma">
+<meta name="description" content="Visite cardiologiche, prevenzione e percorsi personalizzati con il Dr. Felice Perrino.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style.css">
-
-<!-- Cookie Consent by Osano -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-<script>
-window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-    "palette": {
-      "popup": {
-        "background": "#2d3748",
-        "text": "#ffffff"
-      },
-      "button": {
-        "background": "#319795",
-        "text": "#ffffff"
-      }
-    },
-    "theme": "classic",
-    "position": "bottom",
-    "type": "opt-in",
-    "content": {
-      "message": "Questo sito utilizza cookie tecnici e di terze parti per migliorare l'esperienza di navigazione.",
-      "dismiss": "Rifiuta",
-      "allow": "Accetta tutti",
-      "link": "Privacy Policy",
-      "href": "privacy.html"
-    },
-    // Controlla direttamente lo stato dell'utente all'avvio
-    onInitialise: function (status) {
-      if (status === 'allow') {
-        unlockMap();
-      }
-    },
-    // Controlla direttamente quando l'utente clicca su "Accetta tutti"
-    onStatusChange: function (status, chosenBefore) {
-      if (status === 'allow') {
-        unlockMap();
-      }
-    }
-  });
-});
-
-// Funzione globale di sblocco della mappa
-function unlockMap() {
-  const googleMap = document.getElementById('google-map');
-  const mapOverlay = document.getElementById('map-consent-overlay');
-  
-  if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
-    googleMap.src = googleMap.dataset.src;
-    googleMap.classList.remove('hidden');
-    if (mapOverlay) {
-      mapOverlay.style.display = 'none';
-    }
-  }
-}
-
-</script>
 </head>
 <body class="antialiased">
+
+<!-- *********************************** Inizio Banner Temporaneo -->
+<!--<div id="banner-lavorazione" style="background-color: #ff9800; color: #ffffff; text-align: center; padding: 10px 15px; font-weight: bold; font-size: 16px; position: relative; z-index: 9999; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    ⚠️ Sito in lavorazione!!! Stiamo aggiornando i contenuti per offrirvi un servizio migliore. 
+</div>-->
+<!--************************************ Fine Banner Temporaneo -->
 
 <!-- ============ NAVBAR ============ -->
 <header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#cdd7cf] shadow-sm transition-shadow">
@@ -141,387 +94,111 @@ function unlockMap() {
   });
 </script>
 
-<main class="pt-20">
+<main class="pt-10">
+<!-- ============ INTRO (Spazio ridotto in basso: pb-2 al posto di pb-8) ============ -->
+    <section class="max-w-4xl mx-auto px-6 pt-8 pb-2 text-center">
+      <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Cardiologia clinica e prevenzione</span>
+      <h1 class="font-display font-bold text-3xl md:text-5xl text-slate-800 mt-2 mb-0">“Facciamo prevenzione, insieme.”</h1>
+    </section>
+<!-- ============ HERO ============ -->
+<section class="relative pt-20 overflow-hidden bg-sage">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center py-16 md:py-24">
+    <div class="reveal order-2 md:order-1">
+      <p class="mt-6 text-lg prose-measure" style="color:var(--color-ink-soft)">
+        Un approccio alla cardiologia che unisce competenza, tecnologie diagnostiche e ascolto. Per proteggere il cuore, in ogni fase della vita.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+		<a href="lamiastoria.html" class="btn-outline px-7 py-3.5 rounded-full font-semibold border-2 border-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)] hover:shadow-[0_0_20px_rgba(52,211,153,0.9)] hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300">La mia storia</a>
+        <a href="ilmioapproccio.html" class="btn-outline px-7 py-3.5 rounded-full font-semibold border-2 border-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)] hover:shadow-[0_0_20px_rgba(52,211,153,0.9)] hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300">Il mio approccio clinico</a>
+      </div>
+    </div>
+    <div class="order-1 md:order-2 relative">
+      <div class="hero-photo-frame overflow-hidden rounded-tl-3xl">
+	  <img src="img/profilo.jpg"
+      alt="Il Dr. Felice Perrino, cardiologo, in corsia"
+      class="w-full h-[420px] md:h-[576px] object-cover object-center border-2 border-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.7)]">
+      </div>	
+      
+      <!-- Container dei tags sotto l'immagine con effetto hover -->
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- Tag 1: Approccio personalizzato -->
+        <div class="relative group cursor-pointer bg-white/80 border border-slate-200 rounded-2xl p-4 shadow-sm hover:border-primary transition-all duration-300">
+          <div class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i data-lucide="user-check" class="w-4 h-4 text-primary"></i> Check-up Cardiovascolare Completo
+          </div>
+          <!-- Contenuto a comparsa in hover -->
+          <div class="absolute left-0 right-0 bottom-full mb-2 hidden group-hover:block bg-white border border-slate-200 rounded-xl p-4 shadow-xl text-sm text-slate-600 z-50">
+            Nel mio ambulatorio offro un Check-up Cardiovascolare Completo per cui in un'unica seduta eseguiamo insieme visita, ECG, ecocolordoppler cardiaco e dei vasi del collo.
+          </div>
+        </div>
 
-  <!-- ============ SEZIONE HERO / INTRO ============ -->
-<section class="max-w-4xl mx-auto px-6 pt-14 pb-8">
-  <div class="text-center">
-    <span class="text-xs font-bold text-primary uppercase tracking-wider">Rassegna Stampa & Media</span>
-    <h1 class="font-display font-bold text-3xl md:text-5xl text-slate-800 mt-2 mb-4">Interviste e comunicati stampa</h1>
-    <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
-      Gli interventi, le riflessioni e gli approfondimenti dedicati alla prevenzione e alla salute del cuore rilasciati sui principali media.
-    </p>
+        <!-- Tag 2: Diagnostica moderna -->
+        <div class="relative group cursor-pointer bg-white/80 border border-slate-200 rounded-2xl p-4 shadow-sm hover:border-primary transition-all duration-300">
+          <div class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i data-lucide="activity" class="w-4 h-4 text-primary"></i> Valutazione cardiologica
+          </div>
+          <!-- Contenuto a comparsa in hover -->
+          <div class="absolute left-0 right-0 bottom-full mb-2 hidden group-hover:block bg-white border border-slate-200 rounded-xl p-4 shadow-xl text-sm text-slate-600 z-50">
+            Una valutazione cardiologica corretta parte sempre dall'ascolto. Nel mio studio a Parma ti offro un percorso su misura, basato su linee guida scientifiche aggiornate e spiegazioni chiare, senza tecnicismi.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ============ SEZIONE CONTENUTO PRINCIPALE ============ -->
-<section class="max-w-4xl mx-auto px-6 py-8 md:py-12">
-  <div class="space-y-8">
-
-<!-- Card 1: 29 Settembre 2026 -->
-<div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full max-w-full overflow-hidden box-border">
-  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-    <!-- Icona TV -->
-    <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
-      <i data-lucide="tv" class="w-6 h-6 text-primary"></i>
-    </div>
-
-    <!-- Contenuto Card -->
-    <div class="w-full min-w-0">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider block">29 Settembre 2026 · TV Parma</span>
-      <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4 leading-snug">
-        Giornata Mondiale del Cuore: ecco il testo integrale dell’intervista rilasciata a TV Parma
-      </h2>
-      
-      <div class="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-        <p>Buongiorno a tutti. Sono un cardiologo e qui a Parma alle Piccole Figlie Hospital mi occupo ogni giorno di prevenzione cardiovascolare.</p>
-        <p>Il 29 settembre si celebra in tutto il mondo la Giornata Mondiale del Cuore per sensibilizzare i cittadini sull'importanza della prevenzione cardiovascolare e per ricordare a tutti quanto sia fondamentale prendersi cura del proprio cuore.</p>
-        <p class="font-semibold text-slate-800">Lo slogan di quest’anno è “Non perdere il battito”.</p>
-        <p>Spesso queste ricorrenze rischiano di sembrare un po' astratte, la classica "giornata di qualcosa", ma la realtà che vediamo in ambulatorio tutti i giorni è molto concreta: le malattie cardiovascolari, insomma infarto, ictus e problemi circolatori sono la prima causa di morte al mondo e in Italia. E la cosa che ripeto sempre ai miei pazienti è che tanti di questi eventi si possono evitare.</p>
-        <p>Fare prevenzione non significa dover rinunciare a tutto: gnocco fritto, salumi, i pranzi della domenica in famiglia. Fare prevenzione non significa vivere di privazioni o di punizioni: il cuore non si ammala per uno strappo alla regola ogni tanto. Tuttavia bisogna adottare uno stile di vita virtuoso.</p>
-        <p>Bisogna controllare il cuore anche e soprattutto in assenza di sintomi, proprio per prevenire ed anticipare l’insorgenza di quella condizione che porta all’occlusione delle arterie.</p>
-        <p>I pazienti spesso mi dicono <em>"Dottore, sono sempre stato bene e all’improvviso mi sono ammalato"</em>. Questo accade tante volte perché non siamo stati attenti al nostro stile di vita, e quando compaiono i sintomi, significa che le arterie si sono già ristrette.</p>
-        
-        <!-- Punti Chiave Prevenzione -->
-        <p class="font-semibold text-slate-800 pt-2">La prevenzione si fa anche con alcune cose molto semplici:</p>
-        <div class="grid gap-3 my-4">
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage flex items-start gap-3">
-            <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
-            <span class="text-sm text-slate-700"><strong>Primo: conoscere i propri numeri.</strong> La pressione alta può essere del tutto asintomatica, cosi come il colesterolo e la glicemia alta.</span>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage flex items-start gap-3">
-            <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
-            <span class="text-sm text-slate-700"><strong>Secondo: il movimento quotidiano.</strong> Non è necessario iscriversi in palestra. Bastano trenta minuti di camminata a passo svelto ogni giorno, magari in un bel parco o sulle nostre colline.</span>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage flex items-start gap-3">
-            <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
-            <span class="text-sm text-slate-700"><strong>Terzo: il fumo.</strong> Bisogna assolutamente smettere di fumare.</span>
-          </div>
-        </div>
-
-        <!-- Pilastri Strategici -->
-        <p class="font-semibold text-slate-800 pt-2">Secondo la Fondazione Italiana per il Cuore ci sono 4 pilastri strategici per il futuro:</p>
-        <div class="space-y-2.5 my-3 sm:pl-2">
-          <div class="text-sm text-slate-700 flex items-start gap-2">
-            <span class="text-primary font-bold shrink-0">🔹</span>
-            <span><strong>Investimento per la vita:</strong> prevenzione fin dall’età scolare con alimentazione sana a tavola e tanto movimento.</span>
-          </div>
-          <div class="text-sm text-slate-700 flex items-start gap-2">
-            <span class="text-primary font-bold shrink-0">🔹</span>
-            <span><strong>Prevenzione in ottica di Genere:</strong> tenendo conto anche delle specificità biologiche e socio-culturali che influenzano il rischio cardiovascolare.</span>
-          </div>
-          <div class="text-sm text-slate-700 flex items-start gap-2">
-            <span class="text-primary font-bold shrink-0">🔹</span>
-            <span><strong>Rischi “Invisibili”:</strong> lotta ai fattori di rischio meno noti come inquinamento (atmosferico, acustico, sonoro e da microplastiche) e stress sociale e socio-economico.</span>
-          </div>
-          <div class="text-sm text-slate-700 flex items-start gap-2">
-            <span class="text-primary font-bold shrink-0">🔹</span>
-            <span><strong>Cittadini protagonisti:</strong> massimo impegno nell’educazione sanitaria con un focus importante sulla aderenza terapeutica.</span>
-          </div>
-        </div>
-
-        <p>Per cui il messaggio conclusivo è <strong>“Non aspettate di avere un sintomo per occuparvi del vostro cuore”</strong>. Approfittiamo di questo 29 settembre per fare un piccolo gesto pratico: misurare la pressione, prenotare un controllo, fare una passeggiata.</p>
-        <p>Conoscere significa prevenire.</p>
-        <p>Grazie e buona Giornata del Cuore a tutti.</p>
-      </div>
-
-      <!-- Player Video -->
-      <div class="mt-6 max-w-xl mx-auto w-full">
-        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;" class="rounded-2xl shadow-md bg-black w-full">
-          <script src="https://geo.dailymotion.com/player/x1khla.js" data-video="k30Uh8bDgMTKSdKFByG"></script>
-        </div>
-      </div>
-
-      <!-- Link Esterno -->
-      <div class="mt-6 pt-4 border-t border-slate-100">
-        <a href="https://www.12tvparma.it/puntata/tg-parma-edizione-del-29-09-2026-ore-1245/giornata-mondiale-del-cuore-la-prevenzione-al-centro/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline break-words">
-          <span>Guarda la puntata su 12 TV Parma</span>
-          <i data-lucide="external-link" class="w-4 h-4 shrink-0"></i>
-        </a>
-      </div>
-    </div>
+<!-- ============ IL MEDICO ============ -->
+<section class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-5 gap-12">
+  <div class="md:col-span-2 reveal">
+    <p class="text-primary font-semibold mb-3">Il medico</p>
+    <div class="accent-rule mb-5"></div>
+    <h2 class="font-display text-3xl font-bold text-slate-800">La persona, prima della diagnosi.</h2>
   </div>
-</div>
-
-<!-- Card 2: 25 Settembre 2026 -->
-<div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full max-w-full overflow-hidden box-border">
-  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-    <!-- Icona Newspaper -->
-    <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
-      <i data-lucide="newspaper" class="w-6 h-6 text-primary"></i>
-    </div>
-
-    <!-- Contenuto Card -->
-    <div class="w-full min-w-0">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider block">25 Settembre 2026 · Gazzetta di Parma</span>
-      <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4 leading-snug">
-        Giornata Mondiale del Cuore: la mia riflessione sulla prevenzione cardiovascolare a Parma
-      </h2>
-      
-      <div class="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-        <p>In occasione della Giornata Mondiale del Cuore (29 settembre), ho avuto il piacere di condividere alcune riflessioni sulle malattie cardiovascolari e sull'importanza cruciale della prevenzione nel nostro territorio.</p>
-        <p>I dati anagrafici parlano chiaro: a Parma, un residente su cinque ha più di 65 anni. Di fronte a questo scenario demografico e al fatto che le patologie circolatorie restano la prima causa di morte nella nostra regione, la prevenzione smette di essere un capitolo accessorio e diventa la priorità assoluta per la nostra salute.</p>
-        <p>Nell'intervista, rilasciata a margine delle iniziative di Piccole Figlie Hospital, ho affrontato alcuni temi che mi stanno particolarmente a cuore:</p>
-        
-        <!-- Box Informativi -->
-        <div class="space-y-3 my-4">
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800">Il rischio è un processo silenzioso</p>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">Pressione alta, colesterolo, fumo e sedentarietà lavorano insieme negli anni. Il rischio cardiovascolare si costruisce nel tempo, ma la buona notizia è che, proprio nel tempo, si può smontare.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800">Il valore dei controlli periodici</p>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">Misurare regolarmente la pressione e controllare l'assetto lipidico sono gesti semplici che possono letteralmente cambiare la prognosi, anche prima che compaiano i sintomi.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800">La campagna "Non tutti hanno lo stesso cuore"</p>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">Ho illustrato i due nuovi percorsi di prevenzione cardiologica (Smart e Plus) che abbiamo studiato in ospedale per rispondere alle diverse esigenze cliniche e di familiarità dei pazienti.</p>
-          </div>
-        </div>
-
-        <p class="font-medium text-slate-700">Prevenire costa sempre meno che curare, in ogni senso.</p>
-        <p>Per approfondire questi argomenti e leggere il mio intervento completo, vi invito a leggere l'articolo integrale pubblicato sulla Gazzetta di Parma.</p>
-      </div>
-
-      <!-- Link Esterno -->
-      <div class="mt-6 pt-4 border-t border-slate-100">
-        <a href="https://www.gazzettadiparma.it/salute/2026/09/25/news/campagna-di-prevenzione-cardiovascolare-piccole-figlie-rilancia-sulla-prevenzione-970213/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline break-words">
-          <span>Leggi l'articolo integrale sulla Gazzetta di Parma</span>
-          <i data-lucide="external-link" class="w-4 h-4 shrink-0"></i>
-        </a>
-      </div>
-    </div>
+  <div class="md:col-span-3 reveal">
+    <p class="text-lg leading-relaxed prose-measure" style="color:var(--color-ink-soft)">
+      Il Dr. Felice Perrino è cardiologo e accompagna i pazienti in percorsi di prevenzione, diagnosi e cura cardiovascolare con un metodo rigoroso e comprensibile.
+    </p>
+    <p class="mt-4 text-lg leading-relaxed prose-measure" style="color:var(--color-ink-soft)">
+      Ogni visita parte dall'ascolto: storia clinica, stile di vita e obiettivi personali diventano parte di un quadro completo, per prendere decisioni consapevoli insieme.
+    </p>
+    <a href="ilmioapproccio.html" class="inline-flex items-center gap-2 mt-6 font-semibold text-primary">
+      Conosci l'approccio clinico <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
   </div>
-</div>
+</section>
 
-<!-- Card 3: 7 Gennaio 2026 -->
-<div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full max-w-full overflow-hidden box-border">
-  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-    <!-- Icona Book-Open -->
-    <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
-      <i data-lucide="book-open" class="w-6 h-6 text-primary"></i>
+<!-- ============ COMPETENZA ============ -->
+<section class="bg-white border-y border-slate-100 py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-xl reveal mb-14">
+      <p class="text-primary font-semibold mb-3">Un percorso di fiducia</p>
+      <div class="accent-rule mb-5"></div>
+      <h2 class="font-display text-3xl font-bold text-slate-800">Competenza che si traduce in cura.</h2>
     </div>
-
-    <!-- Contenuto Card -->
-    <div class="w-full min-w-0">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider block">7 Gennaio 2026 · Intimità</span>
-      <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4 leading-snug">
-        La mia intervista su Intimità: fari puntati sull'ipertensione sistolica isolata
-      </h2>
-      
-      <div class="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-        <p>Ho contribuito alla rubrica "Salute e Benessere" del settimanale Intimità con un approfondimento dedicato a un disturbo cardiovascolare molto frequente: l'ipertensione sistolica isolata.</p>
-        <p>Nell'articolo, a cura di Barbara Pedron, abbiamo esplorato cosa accade al sistema circolatorio quando la pressione "massima" corre troppo, staccando la "minima". È l'occasione per fare chiarezza su una condizione che rappresenta la forma di ipertensione più comune dopo i sessant'anni.</p>
-        <p>Nel corso dell'intervista ho affrontato alcuni temi chiave per la salute delle nostre arterie:</p>
-
-        <!-- Griglia 2 Colonne -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 my-4">
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Il paradosso dei valori</p>
-            <p class="text-xs sm:text-sm text-slate-600">L'ipertensione sistolica isolata si verifica quando la pressione massima supera i 140 mmHg mentre la minima resta sotto i 90 mmHg. Questo scarto riguarda oltre l'80% delle persone anziane con pressione alta non trattata.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Perché le arterie si irrigidiscono</p>
-            <p class="text-xs sm:text-sm text-slate-600">Con l'avanzare dell'età, le pareti delle arterie perdono elasticità, trasformandosi da tubi flessibili a condotti rigidi. Fattori come diabete, malattie renali, colesterolo alto o fumo accelerano la rigidità dei vasi.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Terapia su misura</p>
-            <p class="text-xs sm:text-sm text-slate-600">Il trattamento va personalizzato. Negli anziani è essenziale evitare sia l'eccesso di farmaci sia l'inerzia terapeutica, calibrando la cura per mantenere la sistolica tra 120 e 130 mmHg con farmaci specifici.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">L'attenzione ai più giovani</p>
-            <p class="text-xs sm:text-sm text-slate-600">Anche se rara, può comparire nei giovani adulti. A volte è legata allo stress o all'effetto "camice bianco", ma resta un segnale sullo stato di salute delle nostre arterie da non ignorare.</p>
-          </div>
-        </div>
-
-        <p>Per scoprire come proteggere al meglio il sistema circolatorio, vi invito a leggere l'approfondimento integrale acquistando il settimanale o sui canali social della rivista.</p>
+    <div class="grid sm:grid-cols-3 gap-8">
+      <div class="reveal">
+        <p class="step-number text-3xl mb-3">01</p>
+        <h3 class="font-display font-semibold text-lg mb-2">Prevenzione</h3>
+        <p class="text-sm" style="color:var(--color-ink-soft)">Intercettare il rischio prima che diventi patologia.</p>
+      </div>
+      <div class="reveal">
+        <p class="step-number text-3xl mb-3">02</p>
+        <h3 class="font-display font-semibold text-lg mb-2">Diagnosi accurata</h3>
+        <p class="text-sm" style="color:var(--color-ink-soft)">Valutazioni complete, spiegate con parole chiare e attenzione a ogni dettaglio.</p>
+      </div>
+      <div class="reveal">
+        <p class="step-number text-3xl mb-3">03</p>
+        <h3 class="font-display font-semibold text-lg mb-2">Percorsi personalizzati</h3>
+        <p class="text-sm" style="color:var(--color-ink-soft)">Terapia e controlli costruiti sulle esigenze della singola persona.</p>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Card 4: 10 Ottobre 2025 -->
-<div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full max-w-full overflow-hidden box-border">
-  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-    <!-- Icona File-Text -->
-    <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
-      <i data-lucide="file-text" class="w-6 h-6 text-primary"></i>
-    </div>
-
-    <!-- Contenuto Card -->
-    <div class="w-full min-w-0">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider block">10 Ottobre 2025 · STARBENE</span>
-      <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4 leading-snug">
-        L'angina senza coronaropatia ostruttiva (INOCA/ANOCA): la mia intervista alla rivista STARBENE
-      </h2>
-      
-      <div class="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-        <p>Molti pazienti avvertono il classico dolore toracico o senso di oppressione tipico dell'ischemia, ma gli esami rivelano coronarie perfettamente libere da restringimenti. Questa condizione clinica, nota come angina senza coronaropatia ostruttiva, sfida le convenzioni della cardiologia tradizionale e impatta pesantemente sulla qualità della vita, generando forte ansia soprattutto nelle donne, le più colpite dalla patologia.</p>
-        <p>Nell'intervista ho analizzato gli aspetti fondamentali di questa diagnosi complessa:</p>
-
-        <!-- Lista Punti Chiave -->
-        <ul class="space-y-3 my-4 sm:pl-2 text-sm text-slate-700">
-          <li class="flex items-start gap-2.5">
-            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-1"></i>
-            <span><strong>Il limite del modello tradizionale:</strong> Fino a pochi anni fa, l'angina veniva diagnosticata quasi esclusivamente in presenza di lesioni evidenti. Oggi è accertato che il cuore può soffrire per un ridotto afflusso di sangue anche con arterie principali intatte.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-1"></i>
-            <span><strong>Diagnosi avanzata:</strong> Il percorso proceeds per esclusione. Utilizziamo tecniche mirate per misurare le resistenze del microcircolo o testiamo la reattività delle arterie in risposta a farmaci specifici.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-1"></i>
-            <span><strong>Le cause dello squilibrio vascolare:</strong> Oltre ai fattori di rischio noti (ipertensione, fumo, obesità, colesterolo alto), il normale funzionamento dei vasi viene alterato in modo decisivo dall'infiammazione cronica e dallo stress psicosociale ed emotivo.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-1"></i>
-            <span><strong>Gestione e cure:</strong> Non esiste ancora una terapia unica. L'approccio clinico parte dalla correzione dello stile di vita, affiancata in casi specifici da farmaci per modulare il tono arterioso o ridurre l'infiammazione.</span>
-          </li>
-        </ul>
-
-        <p>L'articolo completo esplora i meccanismi della patologia e le strategie cliniche per affrontarla.</p>
-      </div>
-
-      <!-- Link Esterno -->
-      <div class="mt-6 pt-4 border-t border-slate-100">
-        <a href="https://www.starbene.it/salute/angina-senza-coronaropatia-ostruttiva-cause-cure/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline break-words">
-          <span>Leggi l'articolo completo su Starbene.it</span>
-          <i data-lucide="external-link" class="w-4 h-4 shrink-0"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 5: Settembre 2025 -->
-<div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full max-w-full overflow-hidden box-border">
-  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-    <!-- Icona Video -->
-    <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
-      <i data-lucide="video" class="w-6 h-6 text-primary"></i>
-    </div>
-
-    <!-- Contenuto Card -->
-    <div class="w-full min-w-0">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider block">Settembre 2025 · TV Parma / Piccole Figlie Hospital</span>
-      <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4 leading-snug">
-        Parliamo di prevenzione cardiovascolare: ecco il testo integrale dell’intervista rilasciata a TV Parma
-      </h2>
-      
-      <div class="space-y-6 text-slate-600 leading-relaxed text-sm sm:text-base">
-        <div>
-          <p class="font-semibold text-slate-800 mb-2">Perché è così importante parlare oggi di prevenzione cardiologica, anche quando ci si sente in perfetta salute?</p>
-          <p class="text-sm">Le malattie cardiovascolari su base aterosclerotica rappresentano ancora oggi la principale causa di morte nel mondo. Storicamente, la prevenzione si è focalizzata sul trattamento di soggetti con malattia conclamata (prevenzione secondary). Oggi è fondamentale parlare di “prevenzione primaria” per prevenire l’insorgenza della malattia in soggetti asintomatici attraverso il controllo dei fattori di rischio modificabili e il cambiamento dello stile di vita.</p>
-        </div>
-
-        <div class="bg-sage/30 rounded-2xl p-4 sm:p-5 border border-sage">
-          <p class="font-semibold text-slate-800 mb-2">Quali sono i segnali che non dobbiamo ignorare e quali controlli periodici possono aiutarci?</p>
-          <p class="text-sm mb-3">Soprattutto l’insorgenza di sintomi quali dolore toracico, fatica di respiro, palpitazioni e ridotta tolleranza allo sforzo. Tuttavia, anche in assenza di sintomi è importante un’adeguata stima del rischio.</p>
-          <p class="text-sm">L’uso di tecniche di imaging non invasive ha rivoluzionato la diagnosi dell'aterosclerosi subclinica, come l’ecografia delle carotidi e la TC cuore per la quantificazione del calcio coronarico (scansione rapida senza mezzo di contrasto e a bassa dose di radiazioni), che consente di identificare pazienti a rischio superiore a quanto stimato dai metodi tradizionali.</p>
-        </div>
-
-        <div>
-          <p class="font-semibold text-slate-800 mb-2">Che cosa possiamo fare ogni giorno, attraverso lo stile di vita e l’alimentazione?</p>
-          <p class="text-sm mb-2">Si raccomanda agli adulti di eseguire almeno 150-300 minuti a settimana di attività fisica aerobica di moderata intensità (o 75-150 di intensità vigorosa) e attività di potenziamento muscolare almeno 2 volte la settimana.</p>
-          <p class="text-sm">Dal punto di vista alimentare è consigliata la dieta mediterranea, a basso contenuto di sale, ricca in verdura, frutta, fibre, legumi, cereali, pesce almeno 1 volta a settimana, e moderazione nel consumo alcolico.</p>
-        </div>
-      </div>
-
-      <!-- Video FB Responsive Container -->
-      <div class="my-6 flex justify-center w-full overflow-hidden">
-        <div class="w-full max-w-[267px] flex justify-center">
-          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FPiccoleFiglieHospital%2Fvideos%2F2684748591887383%2F&show_text=false&width=267&t=0" 
-                  width="267" 
-                  height="476" 
-                  style="border:none; overflow:hidden; max-width: 100%; height: auto; aspect-ratio: 267 / 476;" 
-                  scrolling="no" 
-                  frameborder="0" 
-                  allowfullscreen="true" 
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>
-        </div>
-      </div>
-
-      <!-- Link Esterno -->
-      <div class="mt-6 pt-4 border-t border-slate-100">
-        <a href="https://www.facebook.com/watch/?v=2684748591887383" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline break-words">
-          <span>Guarda il video sulla pagina Facebook di Piccole Figlie Hospital</span>
-          <i data-lucide="external-link" class="w-4 h-4 shrink-0"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 6: 19 Agosto 2025 -->
-<div class="card rounded-2xl p-5 sm:p-8 md:p-10 reveal border border-slate-100 shadow-sm bg-white w-full max-w-full overflow-hidden box-border">
-  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
-    <!-- Icona Heart-Crack -->
-    <div class="w-12 h-12 rounded-2xl bg-sage flex items-center justify-center shrink-0 mt-1">
-      <i data-lucide="heart-crack" class="w-6 h-6 text-primary"></i>
-    </div>
-
-    <!-- Contenuto Card -->
-    <div class="w-full min-w-0">
-      <span class="text-xs font-bold text-primary uppercase tracking-wider block">19 Agosto 2025 · STARBENE</span>
-      <h2 class="font-display font-bold text-xl md:text-2xl text-slate-800 mt-1 mb-4 leading-snug">
-        Dolore toracico: cause, diagnosi e quando preoccuparsi
-      </h2>
-      
-      <div class="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-        <p>Il dolore al petto è uno dei sintomi più frequenti in ambito medico, ma anche uno dei più difficili da decifrare. Nella mia recente intervista ho spiegato come orientarsi tra le cause di questo disturbo, che spaziano da banali contratture muscolari a condizioni cliniche severe.</p>
-        <p>Nell'articolo ho affrontato i seguenti scenari:</p>
-
-        <!-- Griglia 2 Colonne -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 my-4">
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Origine cardiaca e segnali di allarme</p>
-            <p class="text-xs sm:text-sm text-slate-600">Il dolore tipico si presenta come una morsa o un peso schiacciante al centro del petto. Tuttavia, il corpo può lanciare segnali nei giorni precedenti (come un affaticamento improvviso).</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">I dolori atipici</p>
-            <p class="text-xs sm:text-sm text-slate-600">Fitte pungenti o trafittive derivano spesso da problemi muscoloscheletrici, infiammazioni della parete toracica o disturbi gastroesofagei come il reflusso gastrico.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Il peso della sfera psicologica</p>
-            <p class="text-xs sm:text-sm text-slate-600">Attacchi di panico e stress cronico si somatizzano frequentemente nel torace con un dolore reale e tangibile, accompagnato da fame d'aria e palpitazioni.</p>
-          </div>
-          <div class="bg-sage/40 rounded-xl p-3 sm:p-4 border border-sage">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Il percorso diagnostico</p>
-            <p class="text-xs sm:text-sm text-slate-600">L'ascolto del paziente e l'ECG restano il punto di partenza. Un campanello d'allarme decisivo (specialmente nei diabetici) è l'affanno improvviso nelle attività quotidiane.</p>
-          </div>
-        </div>
-
-        <p>L'intervista completa esplora come interpretare correttamente questi segnali, leggendo non solo il sintomo clinico, ma l'intera storia della persona.</p>
-      </div>
-
-      <!-- Link Esterno -->
-      <div class="mt-6 pt-4 border-t border-slate-100">
-        <a href="https://www.starbene.it/salute/dolore-toracico-quali-cause-quando-preoccuparsi/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline break-words">
-          <span>Leggi l'articolo completo su Starbene.it</span>
-          <i data-lucide="external-link" class="w-4 h-4 shrink-0"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
   </div>
 </section>
 
 </main>
-
-<!-- ============ MODAL SUCCESSO ============ -->
-<div id="success-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 px-6">
-  <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center relative">
-    <div class="w-14 h-14 rounded-full bg-sage flex items-center justify-center mx-auto mb-5">
-      <i data-lucide="check" class="w-7 h-7 text-primary"></i>
-    </div>
-    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Dati verificati</h3>
-    <p class="text-sm mb-6" style="color:var(--color-ink-soft)">Il modulo è compilato correttamente. L'invio effettivo sarà attivo non appena il recapito dello studio sarà confermato: nel frattempo puoi scrivere a dr.perrino@protonmail.com.</p>
-    <button id="close-modal" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">Chiudi</button>
-  </div>
-</div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
