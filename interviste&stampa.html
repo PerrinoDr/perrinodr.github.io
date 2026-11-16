@@ -114,31 +114,6 @@ function unlockMap() {
   </div>
 </header>
 
-<!-- Script per la gestione del click del menu -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('hidden');
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !expanded);
-      });
-
-      // Chiudi il menu se si clicca fuori
-      document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-          mobileMenu.classList.add('hidden');
-          menuBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-  });
-</script>
-
 <main class="pt-20">
 
   <!-- ============ SEZIONE HERO / INTRO ============ -->
