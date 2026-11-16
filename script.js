@@ -52,7 +52,7 @@ document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
   });
 });
 
-// ============ Testimonial slider (Precedente) ============
+// ============ Testimonial slider ============
 const track = document.getElementById('testimonial-track');
 if (track) {
   const slides = track.children.length;
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(unlockMap, 100);
   }
 
-  // ============ Slider Feedback Clienti ============
+  // ============ Slider Feedback Clienti (Ultra-robusto) ============
   const feedbackTrack = document.getElementById("feedbackTrack");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
@@ -152,56 +152,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".feedback-card");
 
   if (feedbackTrack && cards.length > 0) {
-    // Crea i puntini in base al numero di card
-    cards.forEach((_, index) => {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (index === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => {
-        const cardWidth = cards[0].offsetWidth + 20; // larghezza + gap
-        feedbackTrack.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+    console.log("Slider feedback attivo!");
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      cards.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          const scrollAmount = feedbackTrack.clientWidth;
+          feedbackTrack.scrollTo({ left: scrollAmount * index, behavior: "smooth" });
+        });
+        dotsContainer.appendChild(dot);
       });
-      dotsContainer.appendChild(dot);
-    });
+    }
 
-    const dots = document.querySelectorAll(".dot");
+    const dots = document.querySelectorAll(".slider-dots .dot, .slider-dots span");
 
-    // Aggiorna il puntino attivo durante lo scorrimento
     feedbackTrack.addEventListener("scroll", () => {
-      const cardWidth = cards[0].offsetWidth + 20;
-      const activeIndex = Math.round(feedbackTrack.scrollLeft / cardWidth);
+      if (dots.length === 0) return;
+      const scrollAmount = feedbackTrack.clientWidth || 300;
+      const activeIndex = Math.round(feedbackTrack.scrollLeft / scrollAmount);
       dots.forEach((dot, i) => {
         dot.classList.toggle("active", i === activeIndex);
       });
     });
 
-    // Funzione scorrimento avanti
     function scrollNext() {
-      const cardWidth = cards[0].offsetWidth + 20;
+      const scrollAmount = feedbackTrack.clientWidth || 300;
       if (feedbackTrack.scrollLeft + feedbackTrack.clientWidth >= feedbackTrack.scrollWidth - 10) {
-        feedbackTrack.scrollTo({ left: 0, behavior: "smooth" }); // Torna all'inizio
+        feedbackTrack.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        feedbackTrack.scrollBy({ left: cardWidth, behavior: "smooth" });
+        feedbackTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     }
 
-    // Funzione scorrimento indietro
     function scrollPrev() {
-      const cardWidth = cards[0].offsetWidth + 20;
+      const scrollAmount = feedbackTrack.clientWidth || 300;
       if (feedbackTrack.scrollLeft <= 10) {
-        feedbackTrack.scrollTo({ left: feedbackTrack.scrollWidth, behavior: "smooth" }); // Vai alla fine
+        feedbackTrack.scrollTo({ left: feedbackTrack.scrollWidth, behavior: "smooth" });
       } else {
-        feedbackTrack.scrollBy({ left: -cardWidth, behavior: "smooth" });
+        feedbackTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
     }
 
     if (nextBtn) nextBtn.addEventListener("click", scrollNext);
     if (prevBtn) prevBtn.addEventListener("click", scrollPrev);
 
-    // Scorrimento automatico ogni 5 secondi
     let autoPlay = setInterval(scrollNext, 5000);
 
-    // Mette in pausa l'autoplay al passaggio del mouse o al tocco
     feedbackTrack.addEventListener("mouseenter", () => clearInterval(autoPlay));
     feedbackTrack.addEventListener("mouseleave", () => {
       autoPlay = setInterval(scrollNext, 5000);
