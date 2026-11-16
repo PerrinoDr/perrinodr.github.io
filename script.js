@@ -52,7 +52,7 @@ document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
   });
 });
 
-// ============ Testimonial slider ============
+// ============ Testimonial slider (Precedente) ============
 const track = document.getElementById('testimonial-track');
 if (track) {
   const slides = track.children.length;
@@ -106,9 +106,7 @@ document.querySelectorAll('.current-year').forEach((el) => {
 });
 
 // ============ Gestione blocco e sblocco Google Maps e Video (GDPR) ============
-
 function unlockMap() {
-  // 1. Sblocco Google Maps (se presente nella pagina)
   const googleMap = document.getElementById('google-map');
   const mapOverlay = document.getElementById('map-consent-overlay');
 
@@ -120,13 +118,12 @@ function unlockMap() {
     }
   }
 
-  // 2. Sblocco Video Dailymotion (se presente nella pagina)
   const videoIframe = document.getElementById('dailymotion-video');
   const videoContainer = document.getElementById('video-container');
   const videoPlaceholder = document.getElementById('video-cookie-placeholder');
 
   if (videoIframe && videoIframe.dataset.src && videoContainer.classList.contains('hidden')) {
-    videoIframe.src = videoIframe.dataset.src; // Assegna il link reale per avviare il caricamento e i cookie
+    videoIframe.src = videoIframe.dataset.src;
     videoContainer.classList.remove('hidden');
     if (videoPlaceholder) {
       videoPlaceholder.style.display = 'none';
@@ -137,83 +134,78 @@ function unlockMap() {
 document.addEventListener("DOMContentLoaded", () => {
   const loadMapBtn = document.getElementById('load-map-btn');
 
-  // Sblocco manuale tramite il pulsante nel box della mappa
   if (loadMapBtn) {
     loadMapBtn.addEventListener('click', () => {
       unlockMap();
     });
   }
 
-  // Sblocco automatico se l'utente aveva già accettato i cookie in precedenza
   if (document.cookie.includes('cookieconsent_status=allow')) {
     setTimeout(unlockMap, 100);
   }
-});
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.getElementById("feedbackTrack");
+  // ============ Slider Feedback Clienti ============
+  const feedbackTrack = document.getElementById("feedbackTrack");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
   const dotsContainer = document.getElementById("sliderDots");
   const cards = document.querySelectorAll(".feedback-card");
 
-  if (!track || cards.length === 0) return;
-
-  // Crea i puntini in base al numero di card
-  cards.forEach((_, index) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if (index === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => {
-      const cardWidth = cards[0].offsetWidth + 20; // larghezza + gap
-      track.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+  if (feedbackTrack && cards.length > 0) {
+    // Crea i puntini in base al numero di card
+    cards.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => {
+        const cardWidth = cards[0].offsetWidth + 20; // larghezza + gap
+        feedbackTrack.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+      });
+      dotsContainer.appendChild(dot);
     });
-    dotsContainer.appendChild(dot);
-  });
 
-  const dots = document.querySelectorAll(".dot");
+    const dots = document.querySelectorAll(".dot");
 
-  // Aggiorna il puntino attivo durante lo scorrimento
-  track.addEventListener("scroll", () => {
-    const cardWidth = cards[0].offsetWidth + 20;
-    const activeIndex = Math.round(track.scrollLeft / cardWidth);
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === activeIndex);
+    // Aggiorna il puntino attivo durante lo scorrimento
+    feedbackTrack.addEventListener("scroll", () => {
+      const cardWidth = cards[0].offsetWidth + 20;
+      const activeIndex = Math.round(feedbackTrack.scrollLeft / cardWidth);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === activeIndex);
+      });
     });
-  });
 
-  // Funzione scorrimento avanti
-  function scrollNext() {
-    const cardWidth = cards[0].offsetWidth + 20;
-    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
-      track.scrollTo({ left: 0, behavior: "smooth" }); // Torna all'inizio
-    } else {
-      track.scrollBy({ left: cardWidth, behavior: "smooth" });
+    // Funzione scorrimento avanti
+    function scrollNext() {
+      const cardWidth = cards[0].offsetWidth + 20;
+      if (feedbackTrack.scrollLeft + feedbackTrack.clientWidth >= feedbackTrack.scrollWidth - 10) {
+        feedbackTrack.scrollTo({ left: 0, behavior: "smooth" }); // Torna all'inizio
+      } else {
+        feedbackTrack.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
     }
-  }
 
-  // Funzione scorrimento indietro
-  function scrollPrev() {
-    const cardWidth = cards[0].offsetWidth + 20;
-    if (track.scrollLeft <= 10) {
-      track.scrollTo({ left: track.scrollWidth, behavior: "smooth" }); // Vai alla fine
-    } else {
-      track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    // Funzione scorrimento indietro
+    function scrollPrev() {
+      const cardWidth = cards[0].offsetWidth + 20;
+      if (feedbackTrack.scrollLeft <= 10) {
+        feedbackTrack.scrollTo({ left: feedbackTrack.scrollWidth, behavior: "smooth" }); // Vai alla fine
+      } else {
+        feedbackTrack.scrollBy({ left: -cardWidth, behavior: "smooth" });
+      }
     }
+
+    if (nextBtn) nextBtn.addEventListener("click", scrollNext);
+    if (prevBtn) prevBtn.addEventListener("click", scrollPrev);
+
+    // Scorrimento automatico ogni 5 secondi
+    let autoPlay = setInterval(scrollNext, 5000);
+
+    // Mette in pausa l'autoplay al passaggio del mouse o al tocco
+    feedbackTrack.addEventListener("mouseenter", () => clearInterval(autoPlay));
+    feedbackTrack.addEventListener("mouseleave", () => {
+      autoPlay = setInterval(scrollNext, 5000);
+    });
+    feedbackTrack.addEventListener("touchstart", () => clearInterval(autoPlay), { passive: true });
   }
-
-  nextBtn.addEventListener("click", scrollNext);
-  prevBtn.addEventListener("click", scrollPrev);
-
-  // Scorrimento automatico ogni 5 secondi
-  let autoPlay = setInterval(scrollNext, 5000);
-
-  // Mette in pausa l'autoplay al passaggio del mouse o al tocco
-  track.addEventListener("mouseenter", () => clearInterval(autoPlay));
-  track.addEventListener("mouseleave", () => {
-    autoPlay = setInterval(scrollNext, 5000);
-  });
-  track.addEventListener("touchstart", () => clearInterval(autoPlay), { passive: true });
 });
-</script>
