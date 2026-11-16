@@ -4,15 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============ Menu mobile ============
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    menuBtn.setAttribute('aria-expanded', isOpen);
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Impedisce al click di propagarsi e chiudere subito il menu
+      mobileMenu.classList.toggle('hidden');
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Chiude il menu se si clicca in un qualsiasi altro punto della pagina
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+});
 
 // ============ Navbar: ombra su scroll ============
 const navbar = document.getElementById('navbar');
