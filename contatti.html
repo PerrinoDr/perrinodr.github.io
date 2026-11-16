@@ -79,7 +79,7 @@ function unlockMap() {
       <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
       <span class="font-display leading-tight">
         <span class="block text-sm font-bold text-primary">Dr. Felice Perrino</span>
-        <span class="block text-[11px] font-medium" style="color:var(--color-ink-soft)">Medico Cardiologo</span>
+        <span class="block text-[11px] font-medium" style="color:var(--color-ink-soft)">Specialista in cardiologia</span>
       </span>
     </a>
 
@@ -167,15 +167,6 @@ function unlockMap() {
     <ul class="space-y-5 mb-10">
       <li class="flex items-start gap-4">
         <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
-          <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
-        </div>
-        <div>
-          <p class="font-semibold">Indirizzo</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittoria%2C+3%2C+43125+Parma+PR%2C+Italia" target="_blank" rel="noopener" class="text-sm hover:text-primary" style="color:var(--color-ink-soft)">Viale Vittoria, 3, 43125 Parma PR</a>
-        </div>
-      </li>
-      <li class="flex items-start gap-4">
-        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
           <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
         </div>
         <div>
@@ -192,36 +183,7 @@ function unlockMap() {
           <p class="text-sm" style="color:var(--color-ink-soft)">cardiologoperrino@gmail.com</p>
         </div>
       </li>
-      <li class="flex items-start gap-4">
-        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
-          <i data-lucide="clock" class="w-4 h-4 text-primary"></i>
-        </div>
-        <div>
-          <p class="font-semibold">Orari</p>
-          <p class="text-sm" style="color:var(--color-ink-soft)">Orari studio Lun-Ven 9:00 - 18:00</p>
-        </div>
-      </li>
     </ul>
-
-<p class="font-semibold mb-3 text-sm">Mappa dello studio</p>
-<div class="rounded-2xl overflow-hidden border border-slate-200 mb-10 h-64 relative bg-slate-100 flex flex-col items-center justify-center text-center p-6" id="map-container">
-  <iframe
-    id="google-map"
-    title="Mappa dello studio — Viale Vittoria, 3, Parma"
-    data-src="https://www.google.com/maps?q=Viale+Vittoria+3+43125+Parma+PR&output=embed"
-    class="w-full h-full border-0 absolute inset-0 hidden" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-
-  <div id="map-consent-overlay" class="relative z-10 flex flex-col items-center gap-3">
-    <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-primary">
-      <i data-lucide="map-pin" class="w-5 h-5"></i>
-    </div>
-    <p class="text-sm font-medium text-slate-700">La mappa è disabilitata per rispettare la tua privacy.</p>
-    <button id="load-map-btn" class="px-4 py-2 bg-black text-white rounded-xl text-xs font-semibold hover:bg-zinc-800 transition-colors cursor-pointer">
-      Carica Google Maps
-    </button>
-  </div>
-</div>
     </div>
 
     <div class="border-t border-slate-200">
@@ -264,101 +226,9 @@ function unlockMap() {
       </div>
     </div>
   </div>
-
-<!-- ============ COLONNA DESTRA — FORM ============ -->
-  <div class="reveal">
-    <div class="bg-white border border-slate-200 rounded-2xl p-8">
-      <p class="text-primary font-semibold mb-1 text-sm">Richiedi informazioni</p>
-      <h2 class="font-display text-2xl font-bold text-slate-800 mb-6">Contattami</h2>
-
-      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
-        
-        <!-- Chiave di accesso Web3Forms -->
-        <input type="hidden" name="access_key" value="66d1638a-5680-48d8-83e6-038bb0b046a0">
-        
-        <!-- Oggetto dell'email che riceverai -->
-        <input type="hidden" name="subject" value="Nuova richiesta di appuntamento dal sito web">
-        
-        <!-- CAMPO HONEYPOT ANTISPAM (deve rimanere nascosto agli umani) -->
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> 
-        
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label for="nome" class="block text-sm font-medium mb-1.5">Nome</label>
-            <input id="nome" name="nome" type="text" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-          </div>
-          <div>
-            <label for="cognome" class="block text-sm font-medium mb-1.5">Cognome</label>
-            <input id="cognome" name="cognome" type="text" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-          </div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label for="email" class="block text-sm font-medium mb-1.5">Email</label>
-            <input id="email" name="email" type="email" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-          </div>
-          <div>
-            <label for="telefono" class="block text-sm font-medium mb-1.5">Telefono</label>
-            <input id="telefono" name="telefono" type="tel" required
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-          </div>
-        </div>
-
-        <div>
-          <label for="tipo-visita" class="block text-sm font-medium mb-1.5">Argomento</label>
-          <select id="tipo-visita" name="tipo-visita" required
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary bg-white">
-            <option value="">Seleziona una prestazione</option>
-            <option value="Visita cardiologica">Visita cardiologica</option>
-            <option value="Elettrocardiogramma">Elettrocardiogramma (ECG)</option>
-            <option value="Ecocardiogramma">Ecocolordoppler cardiaco</option>
-            <option value="Holter cardiaco">Ecocolordoppler dei vasi del collo</option>
-            <option value="Altro">Altro</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="data" class="block text-sm font-medium mb-1.5">Data preferita (facoltativa)</label>
-          <input id="data" name="data" type="date"
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
-        </div>
-
-        <div>
-          <label for="note" class="block text-sm font-medium mb-1.5">Messaggio</label>
-          <textarea id="note" name="note" rows="4" required
-            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary"
-            placeholder="Eventuali informazioni utili per la visita..."></textarea>
-        </div>
-
-        <!-- Pulsante unico corretto con effetto luminoso verde -->
-        <button type="submit" class="w-full py-3.5 px-6 rounded-full font-semibold border-2 border-emerald-400 text-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)] hover:shadow-[0_0_20px_rgba(52,211,153,0.9)] hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300 cursor-pointer">
-          Invia richiesta
-        </button>
-        
-        <p class="text-xs text-center" style="color:var(--color-ink-soft)">I dati saranno inviati direttamente allo studio medico.</p>
-      </form>
-    </div>
-  </div>
-
 </section>
 
 </main>
-
-<!-- ============ MODAL SUCCESSO ============ -->
-<div id="success-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 px-6">
-  <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center relative">
-    <div class="w-14 h-14 rounded-full bg-sage flex items-center justify-center mx-auto mb-5">
-      <i data-lucide="check" class="w-7 h-7 text-primary"></i>
-    </div>
-    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Dati verificati</h3>
-    <p class="text-sm mb-6" style="color:var(--color-ink-soft)">Il modulo è compilato correttamente. L'invio effettivo sarà attivo non appena il recapito dello studio sarà confermato: nel frattempo puoi scrivere a dr.perrino@protonmail.com.</p>
-    <button id="close-modal" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">Chiudi</button>
-  </div>
-</div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
