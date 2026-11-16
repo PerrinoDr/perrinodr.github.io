@@ -149,3 +149,71 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(unlockMap, 100);
   }
 });
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById("feedbackTrack");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const dotsContainer = document.getElementById("sliderDots");
+  const cards = document.querySelectorAll(".feedback-card");
+
+  if (!track || cards.length === 0) return;
+
+  // Crea i puntini in base al numero di card
+  cards.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      const cardWidth = cards[0].offsetWidth + 20; // larghezza + gap
+      track.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".dot");
+
+  // Aggiorna il puntino attivo durante lo scorrimento
+  track.addEventListener("scroll", () => {
+    const cardWidth = cards[0].offsetWidth + 20;
+    const activeIndex = Math.round(track.scrollLeft / cardWidth);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === activeIndex);
+    });
+  });
+
+  // Funzione scorrimento avanti
+  function scrollNext() {
+    const cardWidth = cards[0].offsetWidth + 20;
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+      track.scrollTo({ left: 0, behavior: "smooth" }); // Torna all'inizio
+    } else {
+      track.scrollBy({ left: cardWidth, behavior: "smooth" });
+    }
+  }
+
+  // Funzione scorrimento indietro
+  function scrollPrev() {
+    const cardWidth = cards[0].offsetWidth + 20;
+    if (track.scrollLeft <= 10) {
+      track.scrollTo({ left: track.scrollWidth, behavior: "smooth" }); // Vai alla fine
+    } else {
+      track.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    }
+  }
+
+  nextBtn.addEventListener("click", scrollNext);
+  prevBtn.addEventListener("click", scrollPrev);
+
+  // Scorrimento automatico ogni 5 secondi
+  let autoPlay = setInterval(scrollNext, 5000);
+
+  // Mette in pausa l'autoplay al passaggio del mouse o al tocco
+  track.addEventListener("mouseenter", () => clearInterval(autoPlay));
+  track.addEventListener("mouseleave", () => {
+    autoPlay = setInterval(scrollNext, 5000);
+  });
+  track.addEventListener("touchstart", () => clearInterval(autoPlay), { passive: true });
+});
+</script>
