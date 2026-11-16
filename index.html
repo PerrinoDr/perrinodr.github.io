@@ -1,5 +1,81 @@
 <!DOCTYPE html>
 <html lang="it">
+<!--Markup codice -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Physician", "MedicalBusiness"],
+      "@id": "https://feliceperrino.it/#medico",
+      "name": "Dott. Felice Perrino",
+      "url": "https://feliceperrino.it",
+      "image": "https://feliceperrino.it/percorso-tua-foto.jpg",
+      "description": "Inserisci qui una breve descrizione della tua specializzazione medica e dei servizi offerti.",
+      "medicalSpecialty": [
+        {
+          "@type": "MedicalSpecialty",
+          "name": "Inserisci Specializzazione (es. Orthopedics, Dermatology, Cardiology)"
+        }
+      ],
+      "telephone": "+39-000-0000000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via e Numero Civico dello studio",
+        "addressLocality": "Città",
+        "addressRegion": "Provincia/Regione",
+        "postalCode": "CAP",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.000000",
+        "longitude": "14.000000"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Visita Specialistica"
+        }
+      ],
+      "knowsAbout": [
+        {
+          "@type": "MedicalCondition",
+          "@id": "https://feliceperrino.it/#patologia-1",
+          "name": "Nome Patologia 1 (es. Lombalgia)",
+          "alternateName": "Eventuale sinonimo",
+          "associatedAnatomy": {
+            "@type": "AnatomicalStructure",
+            "name": "Parte del corpo interessata (es. Colonna vertebrale)"
+          },
+          "possibleTreatment": {
+            "@type": "MedicalTherapy",
+            "name": "Nome del trattamento offerto"
+          }
+        },
+        {
+          "@type": "MedicalCondition",
+          "@id": "https://feliceperrino.it/#patologia-2",
+          "name": "Nome Patologia 2"
+        }
+      ]
+    }
+  ]
+}
+</script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
