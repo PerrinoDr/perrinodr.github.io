@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti e prenotazioni | Dr. Perrino</title>
+<meta name="description" content="Richiedi un appuntamento cardiologico con il Dr. Felice Perrino.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Cookie Consent by Osano -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#2d3748",
+        "text": "#ffffff"
+      },
+      "button": {
+        "background": "#319795",
+        "text": "#ffffff"
+      }
+    },
+    "theme": "classic",
+    "position": "bottom",
+    "type": "opt-in",
+    "content": {
+      "message": "Questo sito utilizza cookie tecnici e di terze parti per migliorare l'esperienza di navigazione.",
+      "dismiss": "Rifiuta",
+      "allow": "Accetta tutti",
+      "link": "Privacy Policy",
+      "href": "privacy.html"
+    },
+    // Controlla direttamente lo stato dell'utente all'avvio
+    onInitialise: function (status) {
+      if (status === 'allow') {
+        unlockMap();
+      }
+    },
+    // Controlla direttamente quando l'utente clicca su "Accetta tutti"
+    onStatusChange: function (status, chosenBefore) {
+      if (status === 'allow') {
+        unlockMap();
+      }
+    }
+  });
+});
+
+// Funzione globale di sblocco della mappa
+function unlockMap() {
+  const googleMap = document.getElementById('google-map');
+  const mapOverlay = document.getElementById('map-consent-overlay');
+  
+  if (googleMap && googleMap.dataset.src && googleMap.classList.contains('hidden')) {
+    googleMap.src = googleMap.dataset.src;
+    googleMap.classList.remove('hidden');
+    if (mapOverlay) {
+      mapOverlay.style.display = 'none';
+    }
+  }
+}
+</script>
+</head>
+<body class="antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="navbar fixed top-0 inset-x-0 z-50 bg-[#b8d0e5] shadow-sm transition-shadow">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 relative">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>
+      <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
+      <span class="font-display leading-tight">
+        <span class="block text-sm font-bold text-primary">Dr. Felice Perrino</span>
+        <span class="block text-[11px] font-medium" style="color:var(--color-ink-soft)">Specialista in cardiologia</span>
+      </span>
+    </a>
+
+    <!-- Navigazione Desktop Principale -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="sintomi.html" class="nav-link">Sintomi Comuni</a>
+      <a href="ilmioapproccio.html" class="nav-link">Il mio approccio clinico</a>
+      <a href="lamiastoria.html" class="nav-link">La mia storia</a>
+      <a href="interviste&stampa.html" class="nav-link">Interviste e stampa</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contatti.html" class="nav-link"><strong>Contatti</strong></a>
+    </nav>
+
+    <!-- Sezione Destra: Icona Menu circolare (a sinistra) e tasto Prenota visita -->
+    <div class="flex items-center gap-3 relative">
+      <!-- Pulsante Menu circolare nero con dimensioni fisse (w-11 h-11) per evitare che diventi enorme -->
+      <button id="menu-btn" class="w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-full bg-black flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-800 hover:scale-105 shadow-md cursor-pointer shrink-0" aria-label="Apri menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+
+      <!-- Menu a tendina posizionato in modo assoluto sotto l'icona -->
+      <div id="mobile-menu" class="hidden absolute right-0 top-14 w-56 bg-white rounded-2xl border border-slate-100 shadow-2xl py-3 px-2 flex flex-col gap-1 z-50">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Home</a>
+        <a href="sintomi.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Sintomi Comuni</a>
+        <a href="ilmioapproccio.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Il mio approccio clinico</a>
+        <a href="lamiastoria.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">La mia storia</a> 
+        <a href="interviste&stampa.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Interviste e stampa</a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Blog</a>
+        <a href="contatti.html" class="px-4 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors">Contatti</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Script per la gestione del click del menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('hidden');
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      // Chiudi il menu se si clicca fuori
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+</script>
+
+<main class="pt-20">
+
+<section class="bg-sage py-16 md:py-20">
+  <div class="max-w-4xl mx-auto px-6 reveal">
+    <p class="text-primary font-semibold mb-3">Contatti e prenotazioni</p>
+    <div class="accent-rule mb-5"></div>
+    <h1 class="font-display text-4xl font-extrabold text-slate-800">Inizia da una conversazione.</h1>
+    <p class="mt-4 text-lg prose-measure" style="color:var(--color-ink-soft)">Compila il modulo per richiedere informazioni o chiarimenti. Il numero di telefono dello studio è attivo per eventuali prenotazioni.</p>
+  </div>
+</section>
+
+<!-- ============ IMMAGINE SEZIONE TRATTAMENTI ============ -->
+<section class="max-w-4xl mx-auto px-6 mb-10">
+  <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-100">
+    <img src="img/Contatti.jpg" alt="Dr. Felice Perrino - Trattamenti e percorsi cardiologici" class="w-full h-auto object-cover">
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14">
+
+  <!-- ============ COLONNA SINISTRA ============ -->
+  <div class="reveal">
+    <p class="text-primary font-semibold mb-1 text-sm">Lo studio</p>
+    <h2 class="font-display text-2xl font-bold text-slate-800 mb-6">Informazioni utili</h2>
+    <ul class="space-y-5 mb-10">
+      <li class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
+          <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
+        </div>
+        <div>
+          <p class="font-semibold">Indirizzo</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittoria%2C+3%2C+43125+Parma+PR%2C+Italia" target="_blank" rel="noopener" class="text-sm hover:text-primary" style="color:var(--color-ink-soft)">Viale Vittoria, 3, 43125 Parma PR</a>
+        </div>
+      </li>
+      <li class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
+          <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
+        </div>
+        <div>
+          <p class="font-semibold">Telefono</p>
+          <p class="text-sm" style="color:var(--color-ink-soft)">+39 3757378001</p>
+        </div>
+      </li>
+      <li class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
+          <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
+        </div>
+        <div>
+          <p class="font-semibold">Email</p>
+          <p class="text-sm" style="color:var(--color-ink-soft)">cardiologoperrino@gmail.com</p>
+        </div>
+      </li>
+      <li class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center shrink-0">
+          <i data-lucide="clock" class="w-4 h-4 text-primary"></i>
+        </div>
+        <div>
+          <p class="font-semibold">Orari</p>
+          <p class="text-sm" style="color:var(--color-ink-soft)">Orari studio Lun-Ven 9:00 - 18:00</p>
+        </div>
+      </li>
+    </ul>
+
+<p class="font-semibold mb-3 text-sm">Mappa dello studio</p>
+<div class="rounded-2xl overflow-hidden border border-slate-200 mb-10 h-64 relative bg-slate-100 flex flex-col items-center justify-center text-center p-6" id="map-container">
+  <iframe
+    id="google-map"
+    title="Mappa dello studio — Viale Vittoria, 3, Parma"
+    data-src="https://www.google.com/maps?q=Viale+Vittoria+3+43125+Parma+PR&output=embed"
+    class="w-full h-full border-0 absolute inset-0 hidden" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <div id="map-consent-overlay" class="relative z-10 flex flex-col items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-primary">
+      <i data-lucide="map-pin" class="w-5 h-5"></i>
+    </div>
+    <p class="text-sm font-medium text-slate-700">La mappa è disabilitata per rispettare la tua privacy.</p>
+    <button id="load-map-btn" class="px-4 py-2 bg-black text-white rounded-xl text-xs font-semibold hover:bg-zinc-800 transition-colors cursor-pointer">
+      Carica Google Maps
+    </button>
+  </div>
+</div>
+    </div>
+
+    <div class="border-t border-slate-200">
+    <p class="text-primary font-semibold mb-1 text-sm">Domande frequenti</p>
+      <div class="accordion-item">
+        <button class="accordion-trigger py-4">
+          <span class="font-semibold text-sm">Serve l'impegnativa?</span>
+          <i data-lucide="chevron-down" class="chevron w-4 h-4 text-primary"></i>
+        </button>
+        <div class="accordion-panel">
+          <p class="text-sm pb-4" style="color:var(--color-ink-soft)">No, per le visite private non è necessaria l'impegnativa del medico curante. È sufficiente prenotare tramite il modulo o via email.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger py-4">
+          <span class="font-semibold text-sm">Cosa devo portare alla prima visita?</span>
+          <i data-lucide="chevron-down" class="chevron w-4 h-4 text-primary"></i>
+        </button>
+        <div class="accordion-panel">
+          <p class="text-sm pb-4" style="color:var(--color-ink-soft)">Eventuali esami cardiologici precedenti (ECG, ecocardiogrammi, referti), l'elenco dei farmaci assunti e, se disponibile, la tessera sanitaria.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger py-4">
+          <span class="font-semibold text-sm">Quanto dura una visita cardiologica?</span>
+          <i data-lucide="chevron-down" class="chevron w-4 h-4 text-primary"></i>
+        </button>
+        <div class="accordion-panel">
+          <p class="text-sm pb-4" style="color:var(--color-ink-soft)">In media 30-45 minuti, per lasciare spazio sia all'anamnesi sia a eventuali esami eseguiti in sede.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger py-4">
+          <span class="font-semibold text-sm">Come posso modificare l'appuntamento?</span>
+          <i data-lucide="chevron-down" class="chevron w-4 h-4 text-primary"></i>
+        </button>
+        <div class="accordion-panel">
+          <p class="text-sm pb-4" style="color:var(--color-ink-soft)">Scrivendo all'indirizzo email dello studio con almeno 24 ore di anticipo rispetto all'orario previsto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ============ COLONNA DESTRA — FORM ============ -->
+  <div class="reveal">
+    <div class="bg-white border border-slate-200 rounded-2xl p-8">
+      <p class="text-primary font-semibold mb-1 text-sm">Richiedi informazioni</p>
+      <h2 class="font-display text-2xl font-bold text-slate-800 mb-6">Contattami</h2>
+
+      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+        
+        <!-- Chiave di accesso Web3Forms -->
+        <input type="hidden" name="access_key" value="66d1638a-5680-48d8-83e6-038bb0b046a0">
+        
+        <!-- Oggetto dell'email che riceverai -->
+        <input type="hidden" name="subject" value="Nuova richiesta di appuntamento dal sito web">
+        
+        <!-- CAMPO HONEYPOT ANTISPAM (deve rimanere nascosto agli umani) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> 
+        
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="nome" class="block text-sm font-medium mb-1.5">Nome</label>
+            <input id="nome" name="nome" type="text" required
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+          </div>
+          <div>
+            <label for="cognome" class="block text-sm font-medium mb-1.5">Cognome</label>
+            <input id="cognome" name="cognome" type="text" required
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1.5">Email</label>
+            <input id="email" name="email" type="email" required
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+          </div>
+          <div>
+            <label for="telefono" class="block text-sm font-medium mb-1.5">Telefono</label>
+            <input id="telefono" name="telefono" type="tel" required
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+          </div>
+        </div>
+
+        <div>
+          <label for="tipo-visita" class="block text-sm font-medium mb-1.5">Argomento</label>
+          <select id="tipo-visita" name="tipo-visita" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary bg-white">
+            <option value="">Seleziona una prestazione</option>
+            <option value="Visita cardiologica">Visita cardiologica</option>
+            <option value="Elettrocardiogramma">Elettrocardiogramma (ECG)</option>
+            <option value="Ecocardiogramma">Ecocolordoppler cardiaco</option>
+            <option value="Holter cardiaco">Ecocolordoppler dei vasi del collo</option>
+            <option value="Altro">Altro</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="data" class="block text-sm font-medium mb-1.5">Data preferita (facoltativa)</label>
+          <input id="data" name="data" type="date"
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary">
+        </div>
+
+        <div>
+          <label for="note" class="block text-sm font-medium mb-1.5">Messaggio</label>
+          <textarea id="note" name="note" rows="4" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-primary"
+            placeholder="Eventuali informazioni utili per la visita..."></textarea>
+        </div>
+
+        <!-- Pulsante unico corretto con effetto luminoso verde -->
+        <button type="submit" class="w-full py-3.5 px-6 rounded-full font-semibold border-2 border-emerald-400 text-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)] hover:shadow-[0_0_20px_rgba(52,211,153,0.9)] hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300 cursor-pointer">
+          Invia richiesta
+        </button>
+        
+        <p class="text-xs text-center" style="color:var(--color-ink-soft)">I dati saranno inviati direttamente allo studio medico.</p>
+      </form>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ============ MODAL SUCCESSO ============ -->
+<div id="success-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/50 px-6">
+  <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center relative">
+    <div class="w-14 h-14 rounded-full bg-sage flex items-center justify-center mx-auto mb-5">
+      <i data-lucide="check" class="w-7 h-7 text-primary"></i>
+    </div>
+    <h3 class="font-display text-xl font-bold text-slate-800 mb-2">Dati verificati</h3>
+    <p class="text-sm mb-6" style="color:var(--color-ink-soft)">Il modulo è compilato correttamente. L'invio effettivo sarà attivo non appena il recapito dello studio sarà confermato: nel frattempo puoi scrivere a dr.perrino@protonmail.com.</p>
+    <button id="close-modal" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">Chiudi</button>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+    <div>
+      <p class="font-display text-lg font-bold text-white mb-1">Dr. Felice Perrino</p>
+      <p class="text-sm text-slate-500 mb-3">Cardiologia clinica</p>
+      <p class="text-sm text-slate-400">Ascolto, prevenzione e percorsi cardiologici costruiti intorno alla persona.</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Studio</p>
+      <ul class="space-y-2 text-sm text-slate-400">
+        <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittoria%2C+3%2C+43125+Parma+PR%2C+Italia" class="hover:text-white" target="_blank" rel="noopener">Viale Vittoria, 3, 43125 Parma PR</a>
+        </li>
+        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Telefono 3757378001</li>
+        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> cardiologoperrino@gmail.com</li>
+        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Orari studio Lun-Ven 9:00 - 18:00</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Esplora</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="sintomi.html" class="hover:text-white">Sintomi Comuni</a></li>
+        <li><a href="ilmioapproccio.html" class="hover:text-white">Il mio approccio clinico</a></li>
+        <li><a href="lamiastoria.html" class="hover:text-white">La mia storia</a></li>
+        <li><a href="interviste&stampa.html" class="hover:text-white">Interviste e stampa</a></li>
+        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
+        <li><a href="contatti.html" class="hover:text-white">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Note legali</p>
+      <p class="text-sm text-slate-400">Iscrizione ordine medici provincia di parma n. 8003 - P. IVA 03100050347 - socio aggregato federazione medico sportiva italiana n. 24032</p>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+    <p>&copy; <span class="current-year"></span> Dr. Felice Perrino. Tutti i diritti riservati.</p>
+    <p>Informativa privacy · Cookie · Note legali</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
