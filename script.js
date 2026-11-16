@@ -106,9 +106,7 @@ document.querySelectorAll('.current-year').forEach((el) => {
 });
 
 // ============ Gestione blocco e sblocco Google Maps e Video (GDPR) ============
-
 function unlockMap() {
-  // 1. Sblocco Google Maps (se presente nella pagina)
   const googleMap = document.getElementById('google-map');
   const mapOverlay = document.getElementById('map-consent-overlay');
 
@@ -120,13 +118,12 @@ function unlockMap() {
     }
   }
 
-  // 2. Sblocco Video Dailymotion (se presente nella pagina)
   const videoIframe = document.getElementById('dailymotion-video');
   const videoContainer = document.getElementById('video-container');
   const videoPlaceholder = document.getElementById('video-cookie-placeholder');
 
   if (videoIframe && videoIframe.dataset.src && videoContainer.classList.contains('hidden')) {
-    videoIframe.src = videoIframe.dataset.src; // Assegna il link reale per avviare il caricamento e i cookie
+    videoIframe.src = videoIframe.dataset.src;
     videoContainer.classList.remove('hidden');
     if (videoPlaceholder) {
       videoPlaceholder.style.display = 'none';
@@ -137,15 +134,78 @@ function unlockMap() {
 document.addEventListener("DOMContentLoaded", () => {
   const loadMapBtn = document.getElementById('load-map-btn');
 
-  // Sblocco manuale tramite il pulsante nel box della mappa
   if (loadMapBtn) {
     loadMapBtn.addEventListener('click', () => {
       unlockMap();
     });
   }
 
-  // Sblocco automatico se l'utente aveva già accettato i cookie in precedenza
   if (document.cookie.includes('cookieconsent_status=allow')) {
     setTimeout(unlockMap, 100);
+  }
+
+  // ============ Slider Feedback Clienti (Ultra-robusto) ============
+  const feedbackTrack = document.getElementById("feedbackTrack");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const dotsContainer = document.getElementById("sliderDots");
+  const cards = document.querySelectorAll(".feedback-card");
+
+  if (feedbackTrack && cards.length > 0) {
+    console.log("Slider feedback attivo!");
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      cards.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          const scrollAmount = feedbackTrack.clientWidth;
+          feedbackTrack.scrollTo({ left: scrollAmount * index, behavior: "smooth" });
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    const dots = document.querySelectorAll(".slider-dots .dot, .slider-dots span");
+
+    feedbackTrack.addEventListener("scroll", () => {
+      if (dots.length === 0) return;
+      const scrollAmount = feedbackTrack.clientWidth || 300;
+      const activeIndex = Math.round(feedbackTrack.scrollLeft / scrollAmount);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === activeIndex);
+      });
+    });
+
+    function scrollNext() {
+      const scrollAmount = feedbackTrack.clientWidth || 300;
+      if (feedbackTrack.scrollLeft + feedbackTrack.clientWidth >= feedbackTrack.scrollWidth - 10) {
+        feedbackTrack.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        feedbackTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+
+    function scrollPrev() {
+      const scrollAmount = feedbackTrack.clientWidth || 300;
+      if (feedbackTrack.scrollLeft <= 10) {
+        feedbackTrack.scrollTo({ left: feedbackTrack.scrollWidth, behavior: "smooth" });
+      } else {
+        feedbackTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    }
+
+    if (nextBtn) nextBtn.addEventListener("click", scrollNext);
+    if (prevBtn) prevBtn.addEventListener("click", scrollPrev);
+
+    let autoPlay = setInterval(scrollNext, 5000);
+
+    feedbackTrack.addEventListener("mouseenter", () => clearInterval(autoPlay));
+    feedbackTrack.addEventListener("mouseleave", () => {
+      autoPlay = setInterval(scrollNext, 5000);
+    });
+    feedbackTrack.addEventListener("touchstart", () => clearInterval(autoPlay), { passive: true });
   }
 });

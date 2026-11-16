@@ -90,7 +90,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
 
@@ -105,7 +105,7 @@
   <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 relative">
     <!-- Logo -->
     <a href="index.html" class="flex items-center gap-2">
-      <i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>
+      <!--<i data-lucide="heart-pulse" class="w-5 h-5 text-primary"></i>-->
       <img src="favicon.ico" alt="Logo Dr. Felice Perrino" class="w-10 h-10 object-contain">
       <span class="font-display leading-tight">
         <span class="block text-sm font-bold text-primary">Dr. Felice Perrino</span>
@@ -286,6 +286,62 @@
   </div>
 </section>
 
+<!-- SEZIONE FEEDBACK CLIENTI -->
+<section id="feedback-clienti" class="feedback-section">
+  <div class="container">
+    <h2>Cosa dicono i miei clienti</h2>
+    <p class="subtitle">Testimonianze reali di chi ha intrapreso questo percorso</p>
+
+    <div class="slider-wrapper">
+      <!-- Pulsante Indietro -->
+      <button class="slider-btn prev-btn" aria-label="Recensione precedente">&#10094;</button>
+
+      <!-- Contenitore delle recensioni -->
+      <div class="slider-track" id="feedbackTrack">
+        
+        <!-- Feedback 1 -->
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p class="feedback-text">"Un supporto fondamentale e concreto. Fin dal primo incontro ho sentito grande ascolto, chiarezza e professionalità."</p>
+          <div class="client-info">
+            <strong>Marco R.</strong>
+            <span>Imprenditore</span>
+          </div>
+        </div>
+
+        <!-- Feedback 2 -->
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p class="feedback-text">"Un percorso che mi ha permesso di fare chiarezza nei momenti più complessi, con strumenti pratici fin da subito."</p>
+          <div class="client-info">
+            <strong>Elena B.</strong>
+            <span>Libera Professionista</span>
+          </div>
+        </div>
+
+        <!-- Feedback 3 -->
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p class="feedback-text">"Empatia e metodo. Consiglio vivamente di affidarsi a chi sa guidarti senza giudizi ma con obiettivi chiari."</p>
+          <div class="client-info">
+            <strong>Luca T.</strong>
+            <span>Manager</span>
+          </div>
+        </div>
+
+        <!-- Aggiungi altre card copiando il blocco div.feedback-card -->
+
+      </div>
+
+      <!-- Pulsante Avanti -->
+      <button class="slider-btn next-btn" aria-label="Recensione successiva">&#10095;</button>
+    </div>
+
+    <!-- Indicatori (puntini) -->
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</section>
+<!--Chiusura Feedback-->
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -330,6 +386,6 @@
   </div>
 </footer>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
