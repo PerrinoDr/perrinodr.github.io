@@ -1,0 +1,171 @@
+/* ========================================================
+   Dr. Felice Pellegrino — Design tokens & stili condivisi
+   ======================================================== */
+
+:root {
+  --color-primary: #0f4c81;      /* teal medico profondo */
+  --color-primary-dark: #0a3a63;
+  --color-sage: #e6f4f1;         /* sage / mint per sezioni alternate */
+  --color-gold: #b8933f;         /* oro caldo, leggermente smorzato per accessibilità */
+  --color-gold-soft: #d4af37;
+  --color-bg: #f8fafc;           /* off-white caldo */
+  --color-ink: #1e293b;          /* testo principale */
+  --color-ink-soft: #55627a;     /* testo secondario */
+  --color-line: #e1e7ef;
+
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, .font-display { font-family: var(--font-display); }
+
+/* ---------- Navbar glassmorphism ---------- */
+.navbar {
+  background: rgba(248, 250, 252, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(15, 76, 129, 0.08);
+}
+
+.nav-link {
+  position: relative;
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  transition: color .2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 1.5px;
+  background: var(--color-gold-soft);
+  transition: width .25s ease;
+}
+.nav-link:hover, .nav-link.active { color: var(--color-primary); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  transition: background .25s ease, transform .2s ease;
+}
+.btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+
+.btn-outline {
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  transition: all .25s ease;
+}
+.btn-outline:hover { background: var(--color-primary); color: #fff; }
+
+.btn-gold {
+  background: var(--color-gold-soft);
+  color: #1e293b;
+  transition: background .25s ease, transform .2s ease;
+}
+.btn-gold:hover { background: var(--color-gold); transform: translateY(-1px); }
+
+/* ---------- Reveal on scroll (one orchestrated pattern, used sparingly) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Feature / treatment cards ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+  border-color: var(--color-gold-soft);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -24px rgba(15, 76, 129, 0.25);
+}
+
+/* ---------- Divider accent ---------- */
+.accent-rule {
+  width: 56px;
+  height: 3px;
+  background: var(--color-gold-soft);
+  border-radius: 2px;
+}
+
+/* ---------- Accordion (FAQ) ---------- */
+.accordion-item { border-bottom: 1px solid var(--color-line); }
+.accordion-trigger {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease, padding .35s ease;
+}
+.accordion-item.open .accordion-panel { max-height: 400px; }
+.accordion-trigger .chevron { transition: transform .3s ease; }
+.accordion-item.open .accordion-trigger .chevron { transform: rotate(180deg); }
+
+/* ---------- Testimonial slider ---------- */
+.testimonial-track {
+  display: flex;
+  transition: transform .5s ease;
+}
+.testimonial-slide { flex: 0 0 100%; }
+
+/* ---------- Toast ---------- */
+#toast {
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all .35s ease;
+}
+#toast.show { transform: translateY(0); opacity: 1; }
+
+/* ---------- Utility ---------- */
+.text-primary { color: var(--color-primary); }
+.bg-primary { background: var(--color-primary); }
+.bg-sage { background: var(--color-sage); }
+.text-gold { color: var(--color-gold); }
+
+.hero-photo-frame {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+}
+
+/* pill numerati per le sezioni "percorso" */
+.step-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--color-gold);
+  letter-spacing: -0.02em;
+}
+
+/* line length control for readable paragraphs */
+.prose-measure { max-width: 62ch; }
+
+::selection { background: var(--color-gold-soft); color: #1e293b; }
+
+/* Focus visibility for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-gold-soft);
+  outline-offset: 2px;
+}
